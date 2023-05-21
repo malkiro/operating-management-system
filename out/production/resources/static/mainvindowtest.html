@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kaushalya Distributors</title>
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="resourse/jquery/jquery-3.3.1.slim.min.js"></script>
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="resourse/style/home.css">
+    <link rel="stylesheet" href="resourse/style/common.css">
+    <link rel="stylesheet" href="resourse/style/style3.css">
+    <link rel="stylesheet" href="resourse/style/common2.css">
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <script src="resourse/script/mainWindow.js"></script>
+
+    <script src="resourse/script/sweetalert.min.js"></script>
+
+    <script defer src="resourse/fontawesome/js/solid.js"></script>
+    <script defer src="resourse/fontawesome/js/fontawesome.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <style>
+        /*-------------------Menu Heading--------------*/
+        #active{
+            border: 3px solid black;
+        }
+
+        .dropbtn {
+            font-size: 16px;
+            cursor: pointer;
+            width: 281px;
+            color: black;
+            padding: 0px;
+            height: 35px;
+            text-align: center;
+            border: 1px rgb(161, 161, 161)
+            solid; border: 2px #5a6268 solid;
+            box-shadow: 0 0 6px blue;
+            background-image: url(resourse/image/backgroungbox.png)
+        }
+
+        .dropbtn:hover{
+            background: lightcyan;
+            font-size: 17px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: lightcyan;
+            min-width: 281px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border: 1px solid cyan;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 30px;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .dropdown-content img{
+            border: 1px solid black;
+            margin: 0px 30px 0px 0px;
+            border-radius: 50%;
+            display: inline;
+        }
+
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            border-radius: 30px;
+            border: 1px solid cyan;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .card:hover{
+            cursor: pointer;
+        }
+
+        #employeecart{
+            background-image: url(resourse/image/cart/employee.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 142px}
+
+        #employeecart:hover{cursor: pointer;}
+
+        #usercart{
+            background-image: url(resourse/image/cart/user.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 142px}
+
+        #usercart:hover{cursor: pointer;}
+
+        #privilegecart{
+            background-image: url(resourse/image/cart/privilege.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 136px;
+            margin-top: 14px;
+        }
+
+        #privilegecart:hover{cursor: pointer;}
+
+        #inventorycart{
+            background-image: url(resourse/image/cart/inventory.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 142px}
+
+        #inventorycart:hover{cursor: pointer;}
+
+        #itemcart{
+            background-image: url(resourse/image/cart/item.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 138px;
+            margin-top: 12px;
+        }
+
+        #itemcart:hover{cursor: pointer;}
+
+        #customercart{
+            background-image: url(resourse/image/cart/customer.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 134px;
+            margin-top: 15px;
+        }
+
+        #customercart:hover{cursor: pointer;}
+
+        #sordercart{
+            background-image: url(resourse/image/cart/sorder.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 120px;
+            height: 126px;
+        }
+
+        #sordercart:hover{cursor: pointer;}
+
+        #invoicecart{
+            background-image: url(resourse/image/cart/invoice.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 134px;
+            margin-top: 15px;
+        }
+
+        #invoicecart:hover{cursor: pointer;}
+
+        #cpaymentcart{
+            background-image: url(resourse/image/cart/cpayment.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 100px;
+            margin-top: 30px;
+        }
+
+        #cpaymentcart:hover{cursor: pointer;}
+
+        #creturncart{
+            background-image: url(resourse/image/cart/creturn.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 128px}
+
+        #creturncart:hover{cursor: pointer;}
+
+        #suppliercart{
+            background-image: url(resourse/image/cart/supplier.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 120px;
+            height: 142px}
+
+        #suppliercart:hover{cursor: pointer;}
+
+        #pordercart{
+            background-image: url(resourse/image/cart/porder.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 124px}
+
+        #pordercart:hover{cursor: pointer;}
+
+        #grncart{
+            background-image: url(resourse/image/cart/grn.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 142px}
+
+        #grncart:hover{cursor: pointer;}
+
+        #spaymentcart{
+            background-image: url(resourse/image/cart/spayment.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 124px}
+
+        #spaymentcart:hover{cursor: pointer;}
+
+        #cpointcart{
+            background-image: url(resourse/image/cart/customerpoint.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 128px
+        }
+
+        #cpointcart:hover{cursor: pointer;}
+
+        #distributecart{
+            background-image: url(resourse/image/cart/distribute.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 136px;
+            height: 139px;
+        }
+
+        #distributecart:hover{cursor: pointer;}
+
+        #vehiclecart{
+            background-image: url(resourse/image/cart/vehicle.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 134px;
+            height: 139px}
+
+        #vehiclecart:hover{cursor: pointer;}
+
+        #routecart{
+            background-image: url(resourse/image/cart/route.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 136px;
+            height: 139px}
+
+        #routecart:hover{cursor: pointer;}
+
+        #brandcart{
+            background-image: url(resourse/image/cart/brand.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 138px;
+            height: 139px}
+
+        #brandcart:hover{cursor: pointer;}
+
+        #categorycart{
+            background-image: url(resourse/image/cart/category.png);
+            background-size: cover;
+            border-radius: 10px 10px 0px 0px;
+            width: 136px;
+            height: 139px}
+
+        #categorycart:hover{cursor: pointer;}
+
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            // Toggle plus minus icon on show hide of collapse element
+            $(".collapse").on('show.bs.collapse', function(){
+                $(this).prev(".card-header").find(".fa").removeClass("fa-plus").addClass("fa-minus");
+            }).on('hide.bs.collapse', function(){
+                $(this).prev(".card-header").find(".fa").removeClass("fa-minus").addClass("fa-plus");
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar" style="background-image: url(resourse/image/6.jpg);background-size: cover;">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header mt-5 mr-1 ml-1">
+            <div class="row">
+                <div class="col-md-3" style="padding: 0px">
+                    <img src="resourse/image/logo.png" alt=" logo">
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12"><h3 class="ml-2">Kaushalya</h3></div>
+                        <div class="col-md-12"><h3 class="ml-2">Distributors</h3></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <ul class="list-unstyled components">
+
+            <li>
+                <a href="http://localhost:8080/mainwindow">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-users-cog"></i>
+                    Administration
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li id="EMPLOYEE">
+                        <a href="http://localhost:8080/employee">Employee</a>
+                    </li>
+                    <li id="USER">
+                        <a href="http://localhost:8080/user">User</a>
+                    </li>
+                    <li id="PRIVILAGE">
+                        <a href="http://localhost:8080/privilage">Privilage</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#purchaseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Purchase
+                </a>
+                <ul class="collapse list-unstyled" id="purchaseSubmenu">
+                    <li id="SUPPLIER">
+                        <a href="http://localhost:8080/supplier"> Supplier </a>
+                    </li>
+                    <li id="PORDER">
+                        <a href="http://localhost:8080/porder"> Purchase Order </a>
+                    </li>
+                    <li id="GRN">
+                        <a href="http://localhost:8080/grn"> GRN </a>
+                    </li>
+                    <li  id="SPAYMENT">
+                        <a href="http://localhost:8080/spayment"> Supplier Payment </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Dropdown -->
+            <li>
+                <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Sales
+                </a>
+                <ul class="collapse list-unstyled" id="salesSubmenu">
+                    <li id="CUSTOMER">
+                        <a href="http://localhost:8080/customer"> Customer </a>
+                    </li>
+                    <li  id="CORDER">
+                        <a href="http://localhost:8080/corder"> Customer Order </a>
+                    </li>
+                    <li id="CUSTOMERRETURN">
+                        <a href="http://localhost:8080/creturn"> Customer Return </a>
+                    </li>
+                    <li  id="INVOICE">
+                        <a href="http://localhost:8080/invoice"> Customer Invoice </a>
+                    </li>
+                    <li id="CPAYMENT">
+                        <a href="http://localhost:8080/cpayment"> Customer Payment </a>
+                    </li>
+                    <li id="CUSTOMERPOINT">
+                        <a href="http://localhost:8080/customerpoint"> Customer Point </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#distributeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-bus"></i>
+                    Distribution
+                </a>
+                <ul class="collapse list-unstyled" id="distributeSubmenu">
+                    <li  id="DISTRIBUTE">
+                        <a href="http://localhost:8080/distribute">Distribution</a>
+                    </li>
+                    <li  id="VEHICLE">
+                        <a href="http://localhost:8080/vehicle">Vehicle</a>
+                    </li>
+                    <li  id="DISTRIBUTIONROUTE">
+                        <a href="http://localhost:8080/route">Route</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#inventorySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-store"></i>
+                    Inventory
+                </a>
+                <ul class="collapse list-unstyled" id="inventorySubmenu">
+                    <li  id="INVENTORY">
+                        <a href="http://localhost:8080/inventory">Inventory</a>
+                    </li>
+                    <li  id="BATCH">
+                        <a href="http://localhost:8080/batch">Batch</a>
+                    </li>
+                    <li  id="ITEM">
+                        <a href="http://localhost:8080/item">Item</a>
+                    </li>
+                    <li id="BRAND">
+                        <a href="http://localhost:8080/brand">Brand</a>
+                    </li>
+                    <li  id="CATEGORY">
+                        <a href="http://localhost:8080/category">Category</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#requestSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-newspaper"></i>
+                    Request
+                </a>
+                <ul class="collapse list-unstyled" id="requestSubmenu">
+                    <li  id="REQUEST">
+                        <a href="http://localhost:8080/inventory">Request Details</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-book"></i>
+                    Report
+                </a>
+                <ul class="collapse list-unstyled" id="reportSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/grnreport"> GRN Report </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/salesreport"> Sales Report </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report3"> Report 3 </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report4"> Report 4 </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="http://localhost:8080/portfolio">
+                    <i class="fas fa-image"></i> Portfolio</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+        <!-- Navbar  -->
+        <nav id="navBar" class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+            <div class="container-fluid">
+                <div class="float-left">
+                    <button type="button" id="sidebarCollapse" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary btn-lg rounded-circle ml-5">
+                        <a href="http://localhost:8080/mainwindow"> <i class="fa fa-home"></i></a>
+                    </button>
+
+                    <!-- Brand/logo -->
+                    <a class="navbar-brand" href="#">
+                        <img src="resourse/image/logo.png" alt=" logo">
+                    </a>
+
+                    <h1>KAUSHALYA</h1>
+                    <h1 class="ml-3">DISTRIBUTORS</h1>
+
+
+                    <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+                    <script>
+                        showTime();
+                    </script>
+
+                </div>
+
+
+
+                <form class="form-inline my-2 my-lg-0 mr-2 float-right">
+                    <h4 style="color: aliceblue">Login as :</h4>
+                    <h5 style="color: aliceblue" class="d-inline ml-2" id="lblLoggedAsUser"></h5>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" style="width: 200px" href="#"
+                                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <img id="profileImage" class="profileImage">
+                                    <p class="loggedUserNameField d-inline ml-2" id="lblLogUser">123456</p>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="width: 200px">
+                                    <a class="dropdown-item" href="#"><i class="fas fa-user-circle"></i> View Profile</a>
+                                    <a class="dropdown-item" href="#" onclick="btnSignoutMC()"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+        </nav>
+
+        <!-- Sub Menu Content -->
+        <div class="container-fluid" style="margin-top: -40px">
+            <div class="row">
+                <div class="dropdown">
+                    <button class="dropbtn"><a href="http://localhost:8080/employee"><b><i class="fas fa-users-cog"></i> Administration</b></a></button>
+                    <div class="dropdown-content">
+                        <a class="EMPLOYEE" href="http://localhost:8080/employee"><img src="resourse/image/menuitem/employee.png">Employee</a>
+                        <a class="USER" href="http://localhost:8080/user"><img src="resourse/image/menuitem/user.png">User</a>
+                        <a class="PRIVILAGE" href="http://localhost:8080/privilage"><img src="resourse/image/menuitem/privilege.png">Privilege</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-briefcase"></i> Purchases</b></button>
+                    <div class="dropdown-content">
+                        <a style="padding: 20px" class="SUPPLIER" href="http://localhost:8080/supplier"><img style="margin-right: 20px" src="resourse/image/menuitem/supplier.png">Supplier</a>
+                        <a style="padding: 20px" class="PORDER" href="http://localhost:8080/porder"><img style="margin-right: 20px" src="resourse/image/menuitem/porder.png">Purchase Order</a>
+                        <a style="padding: 20px" class="GRN" href="http://localhost:8080/grn"><img style="margin-right: 20px" src="resourse/image/menuitem/grn.png">GRN</a>
+                        <a style="padding: 20px" class="SPAYMENT" href="http://localhost:8080/spayment"><img style="margin-right: 20px" src="resourse/image/menuitem/spayment.png">Supplier Payment</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-briefcase"></i> Sales</b></button>
+                    <div class="dropdown-content">
+                        <a style="padding: 15px" class="CUSTOMER" href="http://localhost:8080/customer"><img style="margin-right: 20px" src="resourse/image/menuitem/customer.png">Customer</a>
+                        <a style="padding: 15px" class="CORDER" href="http://localhost:8080/corder"><img style="margin-right: 20px" src="resourse/image/menuitem/sorder.png">Customer Order</a>
+                        <a style="padding: 15px" class="CUSTOMERRETURN" href="http://localhost:8080/creturn"><img style="margin-right: 20px" src="resourse/image/menuitem/creturn.png">Customer Return</a>
+                        <a style="padding: 15px" class="INVOICE" href="http://localhost:8080/invoice"><img style="margin-right: 20px" src="resourse/image/menuitem/invoice.png">Customer Invoice</a>
+                        <a style="padding: 15px" class="CPAYMENT" href="http://localhost:8080/cpayment"><img style="margin-right: 20px" src="resourse/image/menuitem/cpayment.png">Customer Payment</a>
+                        <a style="padding: 15px" class="CUSTOMERPOINT" href="http://localhost:8080/customerpoint"><img style="margin-right: 20px" src="resourse/image/menuitem/customerpoint.png">Customer Point</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-bus"></i> Distribution</b></button>
+                    <div class="dropdown-content">
+                        <a class="DISTRIBUTE" href="http://localhost:8080/distribute"><img src="resourse/image/menuitem/distribute.png">Distribution</a>
+                        <a class="VEHICLE" href="http://localhost:8080/vehicle"><img src="resourse/image/menuitem/vehicle.png">Vehicle</a>
+                        <a class="ROUTE" href="http://localhost:8080/route"><img src="resourse/image/menuitem/route.png">Root</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-store"></i> Inventory</b></button>
+                    <div class="dropdown-content">
+                        <a class="INVENTORY" href="http://localhost:8080/inventory"><img src="resourse/image/menuitem/inventory.png">Inventory</a>
+                        <a class="BATCH" href="http://localhost:8080/batch"><img src="resourse/image/menuitem/batch.png">Batch</a>
+                        <a class="ITEM" href="http://localhost:8080/http://localhost:8080/item"><img src="resourse/image/menuitem/item.png">Item</a>
+                        <a class="BRAND" href="http://localhost:8080/brand"><img src="resourse/image/menuitem/brand.png">Brand</a>
+                        <a class="CATEGORY" href="http://localhost:8080/category"><img src="resourse/image/menuitem/category.png">Category</a>
+                    </div>
+                </div>
+
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-newspaper"></i> Request</b></button>
+                    <div class="dropdown-content">
+                        <a class="REQUEST" href="http://localhost:8080/request"><img style="margin-right: 20px" src="resourse/image/menuitem/requestform.png">Request Details</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="container-fluid dashbordbody">
+
+            <div class="row">
+                <div class="col-md-7 mr-3 mt-3" style="background-color: rgba(255,255,255,0.3); display: flex; margin-top: 0px; height: 820px; width: 600px; padding-left: 8px;">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-3 EMPLOYEE">
+                                <div class="ml-2 mt-2" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/employee')" style="margin-top: -30px">
+                                        <div  id="employeecart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>Employee</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 CUSTOMER">
+                                <div class="ml-2 mt-3" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/customer')" style="margin-top: -30px">
+                                        <div  id="customercart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>Customer</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 SUPPLIER">
+                                <div class="ml-2 mt-3" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/supplier')" style="margin-top: -30px">
+                                        <div  id="suppliercart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>Supplier</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 DISTRIBUTE">
+                                <div class="ml-2 mt-3 mb-2" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/distribute')" style="margin-top: -30px">
+                                        <div  id="distributecart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>Distribute</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-3 USER">
+                                <div class="ml-2 mt-2" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/user')" style="margin-top: -30px">
+                                        <div  id="usercart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>User</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 CORDER">
+                                <div class="ml-2 mt-3" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/corder')" style="margin-top: -30px">
+                                        <div  id="sordercart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:46px"> <h5>Customer Order</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 PORDER">
+                                <div class="ml-2 mt-3" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/porder')" style="margin-top: -30px">
+                                        <div  id="pordercart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:48px"> <h5>Purchase Order</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 VEHICLE">
+                                <div class="ml-2 mt-3 mb-2" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/vehicle')" style="margin-top: -30px">
+                                        <div  id="vehiclecart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>Vehicle</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-3 PRIVILAGE">
+                                <div class="ml-2 mt-2" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/privilage')" style="margin-top: -30px">
+                                        <div  id="privilegecart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>Privillege</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 INVOICE">
+                                <div class="ml-2 mt-3" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/invoice')" style="margin-top: -30px">
+                                        <div  id="invoicecart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>Invoice</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 GRN">
+                                <div class="ml-2 mt-3" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/grn')" style="margin-top: -30px">
+                                        <div  id="grncart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>Grn</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 DISTRIBUTIONROUTE">
+                                <div class="ml-2 mt-3 mb-2" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/route')" style="margin-top: -30px">
+                                        <div  id="routecart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>Route</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-3 CUSTOMERPOINT">
+                                <div class="ml-2 mt-2" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/customerpoint')" style="margin-top: -30px">
+                                        <div  id="cpointcart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:46px"> <h5>Customer Points</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 CPAYMENT">
+                                <div class="ml-2 mt-3" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/cpayment')" style="margin-top: -30px">
+                                        <div  id="cpaymentcart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:48px"> <h5>Customer Payment</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 SPAYMENT">
+                                <div class="ml-2 mt-3" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/spayment')" style="margin-top: -30px">
+                                        <div  id="spaymentcart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:48px"> <h5>Supplier Payment</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 BRAND">
+                                <div class="ml-2 mt-3 mb-2" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/brand')" style="margin-top: -30px">
+                                        <div  id="brandcart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>Brand</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-3 ITEM">
+                                <div class="ml-2 mt-2" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/item')" style="margin-top: -30px">
+                                        <div  id="itemcart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>Item</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 CUSTOMERRETURN">
+                                <div class="ml-2 mt-3" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/creturn')" style="margin-top: -30px">
+                                        <div  id="creturncart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:46px"> <h5>Customer Return</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 INVENTORY">
+                                <div class="ml-2 mt-3" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/inventory')" style="margin-top: -30px">
+                                        <div  id="inventorycart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>Inventory</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 CATEGORY">
+                                <div class="ml-2 mt-3 mb-2" style="width: 150px; height: 190px; border-radius: 10px; padding-top: 2px; border: 2px #5a6268 solid; box-shadow: 0 0 6px blue; background-image: url(resourse/image/backgroungbox.png)">
+                                    <div class="m-2 text-center" onclick="window.location.assign('http://localhost:8080/category')" style="margin-top: -30px">
+                                        <div  id="categorycart"></div>
+                                        <div class="card card-footer bg-primary text-white p-0" style="width: 130px;height:30px"> <h5>Category</h5></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="col-md-12" style="height: auto; background-color: rgba(255,255,255,0.4); margin-top: 20px; margin-left: 20px; border: 3px solid lightcyan;
+                       border-radius: 30px;">
+                        <h3 class="mt-2" style="color: black">Notifications</h3>
+                        <div style="padding: 0px; background-color: rgba(255,255,255,0.6); border: 0px solid darkcyan;" class="jumbotron" id="divNotification3"></div>
+                        <div style="padding: 0px; background-color: rgba(255,255,255,0.6); border: 0px solid darkcyan;" class="jumbotron" id="divNotification"></div>
+                        <div style="padding: 0px; background-color: rgba(255,255,255,0.6); border: 0px solid darkcyan;" class="jumbotron" id="divNotification2"></div>
+                        <div style="padding: 0px; background-color: rgba(255,255,255,0.6); border: 0px solid darkcyan;" class="jumbotron" id="divNotification4"></div>
+                    </div>
+
+                    <!--<div id="abc" class="col-md-12" style="height: 300px; background-color: rgba(255,255,255,0.3); margin-top: 20px; margin-left: 20px;">-->
+                        <!--<p class="mt-2" style="color: black">Notification here</p>-->
+                        <!--<div style="padding: 10px;" class="jumbotron" id="divNotification2"></div>-->
+                    <!--</div>-->
+                </div>
+
+
+
+
+
+
+
+
+        <!--<div id="err" style="margin-top: 200px"></div>-->
+
+    </div>
+        </div>
+    </div>
+
+</div>
+<div class="overlay"></div>
+<script>
+
+    window.addEventListener("load", initialize);
+
+    function initialize() {
+
+        // get customer order list
+        var corderlist = httpRequest("/corder/activelist", "GET");
+        corderpropertylist = ['cono', 'requiredate', 'customerId'];
+
+        var requestlist = httpRequest("/request/activelist", "GET");
+        requestpropertylist = ['no','requestdetails'];
+
+        var inventorylist = httpRequest("/inventory/activelist", "GET");
+        inventorypropertylist = ['itemId', 'availableqty'];
+
+        var deliverylist = httpRequest("/distribute/activelist", "GET");
+        deliverypropertylist = ['distributionno', 'distributionrouteId', 'totalinvoice'];
+
+
+
+        //Manager
+        if (session.getObject('activeuser').employeeId.designationId.name == "Manager") {
+            createNotification(corderlist, corderpropertylist, "Customer Orders", 'cname');
+            createNotification3(requestlist, requestpropertylist, "Requst Details");
+            createNotification2(inventorylist, inventorypropertylist, "Low Inventory Items", 'itemname');
+        }
+
+        //Owner
+        if (session.getObject('activeuser').employeeId.designationId.name == "Owner") {
+            createNotification3(requestlist, requestpropertylist, "Requst Details");
+        }
+
+        // //Sales rep
+        // if (session.getObject('activeuser').employeeId.designationId.name == "Sales rep") {
+        //     createNotification(corderlist, corderpropertylist, "Customer Orders", 'cname');
+        // }
+
+        //Stock keeper
+        if (session.getObject('activeuser').employeeId.designationId.name == "Stock Keeper") {
+            createNotification(corderlist, corderpropertylist, "Customer Orders", 'cname');
+        }
+
+        //Delivery Agent
+        if (session.getObject('activeuser').employeeId.designationId.name == "Delivery Agent") {
+            createNotification4(deliverylist, deliverypropertylist, "Delivery Orders",'routename');
+        }
+
+        // //Admin
+        // if (session.getObject('activeuser').employeeId.designationId.name == "Stock Keeper") {
+        //
+        // }
+
+    }
+
+    function createNotification(list,propertyarray,text,property) {
+            divNotification.innerHTML = text;
+            for( var index in list){
+                var row = document.createElement('div');
+                row.classList.add('row');
+                row.classList.add('mt-2');
+                row.classList.add('ml-1');
+                row.classList.add('mr-1');
+                var col = document.createElement('div');
+                col.classList.add('col');
+                var h6 = document.createElement('h6');
+                h6.classList.add('font-weight-bold');
+                h6.innerHTML = list[index][propertyarray[0]] + "------>"+list[index][propertyarray[1]]+ "------>"+list[index][propertyarray[2]][property];
+
+                col.appendChild(h6);
+                row.appendChild(col);
+                divNotification.appendChild(row);
+
+            }
+    }
+
+    function createNotification2(list,propertyarray,text,property) {
+        divNotification2.innerHTML = text;
+
+
+        for( var index in list){
+            var row = document.createElement('div');
+            row.classList.add('row');
+            row.classList.add('mt-2');
+            row.classList.add('ml-1');
+            row.classList.add('mr-1');
+            var col = document.createElement('div');
+            col.classList.add('col');
+            var h6 = document.createElement('h6');
+            h6.classList.add('font-weight-bold');
+            h6.innerHTML = list[index][propertyarray[0]][property] + "-------->["+list[index][propertyarray[1]]+ "]";
+
+            col.appendChild(h6);
+            row.appendChild(col);
+            divNotification2.appendChild(row);
+
+        }
+    }
+
+    function createNotification3(list,propertyarray,text) {
+        divNotification3.innerHTML = text;
+
+
+        for( var index in list){
+            var row = document.createElement('div');
+            row.classList.add('row');
+            row.classList.add('mt-2');
+            row.classList.add('ml-1');
+            row.classList.add('mr-1');
+            var col = document.createElement('div');
+            col.classList.add('col');
+            var h6 = document.createElement('h6');
+            h6.classList.add('font-weight-bold');
+            h6.innerHTML = list[index][propertyarray[0]]+ "------>"+list[index][propertyarray[1]];
+
+            col.appendChild(h6);
+            row.appendChild(col);
+            divNotification3.appendChild(row);
+
+        }
+    }
+
+    function createNotification4(list,propertyarray,text,property) {
+        divNotification4.innerHTML = text;
+        for( var index in list){
+            var row = document.createElement('div');
+            row.classList.add('row');
+            row.classList.add('mt-2');
+            row.classList.add('ml-1');
+            row.classList.add('mr-1');
+            var col = document.createElement('div');
+            col.classList.add('col');
+            var h6 = document.createElement('h6');
+            h6.classList.add('font-weight-bold');
+            h6.innerHTML = list[index][propertyarray[0]] + "------>"+list[index][propertyarray[1]][property]+ "------>"+list[index][propertyarray[2]];
+
+            col.appendChild(h6);
+            row.appendChild(col);
+            divNotification4.appendChild(row);
+
+        }
+    }
+
+
+</script>
+
+</body>
+
+</html>

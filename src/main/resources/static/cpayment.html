@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kaushalya Distributors</title>
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resourse/bootstrap/css/font-awesome.min.css">
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="resourse/style/home.css">
+    <link rel="stylesheet" href="resourse/style/common.css">
+    <link rel="stylesheet" href="resourse/style/style3.css">
+    <link rel="stylesheet" href="resourse/style/common2.css">
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <script src="resourse/script/mainWindow.js"></script>
+
+    <script src="resourse/script/sweetalert.min.js"></script>
+
+    <script defer src="resourse/fontawesome/js/solid.js"></script>
+    <script defer src="resourse/fontawesome/js/fontawesome.js"></script>
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap4-toggle.min.css">
+    <script src="resourse/bootstrap/js/bootstrap4-toggle.min.js"></script>
+
+    <link href="resourse/select2/css/select2.min.css" rel="stylesheet" />
+    <script src="resourse/select2/js/select2.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--<script src="resourse/jquery/jquery-3.3.1.slim.min.js"></script>-->
+
+    <script src="cpayment.js"></script>
+
+    <style>
+        /*-------------------Menu Heading--------------*/
+        #active{
+            border: 3px solid black;
+        }
+
+        .dropbtn {
+            font-size: 16px;
+            cursor: pointer;
+            width: 281px;
+            color: black;
+            padding: 0px;
+            height: 35px;
+            text-align: center;
+            border: 1px rgb(161, 161, 161)
+            solid; border: 2px #5a6268 solid;
+            box-shadow: 0 0 6px blue;
+            background-image: url(resourse/image/backgroungbox.png)
+        }
+
+        .dropbtn:hover{
+            background: lightcyan;
+            font-size: 17px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: lightcyan;
+            min-width: 281px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border: 1px solid cyan;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 30px;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .dropdown-content img{
+            border: 1px solid black;
+            margin: 0px 30px 0px 0px;
+            border-radius: 50%;
+            display: inline;
+        }
+
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            border-radius: 30px;
+            border: 1px solid cyan;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        /*/*/
+
+        #txtDescription:focus {
+            outline: 0 !important;
+            box-shadow: none;
+        }
+
+        .button {
+            width: 300px;
+            transition: all 0.5s;
+        }
+
+        .button span {
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+
+
+        /*-------------Card Panel And Card Menu Bar----------------*/
+        .card-menubar{
+            background-image: url(resourse/image/57.jpg);
+        }
+
+
+        /*Model Body*/
+        .modal-dialog {max-width:1300px;}
+        .paymentcard{border: 5px lightskyblue solid; margin-top: -20px; width: 690px;}
+        .paymentcard .card-header{background: lightblue; height: 50px; padding: 0px;}
+        .paymentcard .card-header button{width: 710px; text-align: left; height: 50px;}
+        .paymentcard .card-body{background-image: radial-gradient(circle,white,white,white,lightcyan,lightskyblue);}
+
+
+
+        /*Model Footer*/
+        #topLable {margin-left: 800px;color: #1b1e21; font-size: 16px;}
+
+
+
+
+
+
+
+        @media only screen and (max-width: 820px) and (min-width: 421px) {
+            /*Card Body*/
+            #btnAddpayment{width: 120px; margin-left: -40px;}
+
+            /*Model Body*/
+            #txtDescription{width: 695px !important;}
+            .paymentcard .card-header{padding-top: 0px !important;}
+
+            /*Model Footer*/
+            #bottomLable{margin-right: 530px; font-size: 11px;}
+        }
+
+        .tooltip-inner {
+            background-color: #f00;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            margin-top: 12px;
+            padding: 10px;
+            border-radius: 15px;
+            height: 210px;
+            background: rgb(239, 245, 250);
+        }
+
+
+        legend {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            width: 150px;
+            background-color: white;
+        }
+
+        /*for select2*/
+        .select2-selection{
+            width:350px !important;
+            height: 32px !important;
+            border-radius : 8px !important;
+            padding-top: 3px;
+            /*border : 0px !important;*/
+            padding-left: 10px !important;
+        }
+
+        .select2-container{
+            height: 38px !important;
+            border-radius : 10px !important;
+        }
+
+        .select2-selection__arrow{
+            margin-top: 6px !important;
+            margin-left: 30px !important;
+            padding-right: 30px !important;
+        }
+
+        .select2-selection__rendered{
+            padding-right: 5px !important;
+            border-bottom-color : #d6d6c2;
+            border-bottom-width: 3px;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar" style="background-image: url(resourse/image/6.jpg);background-size: cover;">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header mt-5 mr-1 ml-1">
+            <div class="row">
+                <div class="col-md-3" style="padding: 0px">
+                    <img src="resourse/image/logo.png" alt=" logo">
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12"><h3 class="ml-2">Kaushalya</h3></div>
+                        <div class="col-md-12"><h3 class="ml-2">Distributors</h3></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <ul class="list-unstyled components">
+
+            <li>
+                <a href="http://localhost:8080/mainwindow">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-users-cog"></i>
+                    Administration
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li id="EMPLOYEE">
+                        <a href="http://localhost:8080/employee">Employee</a>
+                    </li>
+                    <li id="USER">
+                        <a href="http://localhost:8080/user">User</a>
+                    </li>
+                    <li id="PRIVILAGE">
+                        <a href="http://localhost:8080/privilage">Privilage</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#purchaseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Purchase
+                </a>
+                <ul class="collapse list-unstyled" id="purchaseSubmenu">
+                    <li id="SUPPLIER">
+                        <a href="http://localhost:8080/supplier"> Supplier </a>
+                    </li>
+                    <li id="PORDER">
+                        <a href="http://localhost:8080/porder"> Purchase Order </a>
+                    </li>
+                    <li id="GRN">
+                        <a href="http://localhost:8080/grn"> GRN </a>
+                    </li>
+                    <li  id="SPAYMENT">
+                        <a href="http://localhost:8080/spayment"> Supplier Payment </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Dropdown -->
+            <li>
+                <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Sales
+                </a>
+                <ul class="collapse list-unstyled" id="salesSubmenu">
+                    <li id="CUSTOMER">
+                        <a href="http://localhost:8080/customer"> Customer </a>
+                    </li>
+                    <li  id="CORDER">
+                        <a href="http://localhost:8080/corder"> Customer Order </a>
+                    </li>
+                    <li  id="INVOICE">
+                        <a href="http://localhost:8080/invoice"> Customer Invoice </a>
+                    </li>
+                    <li id="CPAYMENT">
+                        <a href="http://localhost:8080/cpayment"> Customer Payment </a>
+                    </li>
+                    <li id="CUSTOMERRETURN">
+                        <a href="http://localhost:8080/creturn"> Customer Return </a>
+                    </li>
+                    <li id="CUSTOMERPOINT">
+                        <a href="http://localhost:8080/customerpoint"> Customer Point </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#distributeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-bus"></i>
+                    Distribution
+                </a>
+                <ul class="collapse list-unstyled" id="distributeSubmenu">
+                    <li  id="DISTRIBUTE">
+                        <a href="http://localhost:8080/distribute">Distribution</a>
+                    </li>
+                    <li  id="VEHICLE">
+                        <a href="http://localhost:8080/vehicle">Vehicle</a>
+                    </li>
+                    <li  id="DISTRIBUTIONROUTE">
+                        <a href="http://localhost:8080/route">Route</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#inventorySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-store"></i>
+                    Inventory
+                </a>
+                <ul class="collapse list-unstyled" id="inventorySubmenu">
+                    <li  id="INVENTORY">
+                        <a href="http://localhost:8080/inventory">Inventory</a>
+                    </li>
+                    <li  id="BATCH">
+                        <a href="http://localhost:8080/batch">Batch</a>
+                    </li>
+                    <li  id="ITEM">
+                        <a href="http://localhost:8080/item">Item</a>
+                    </li>
+                    <li id="BRAND">
+                        <a href="http://localhost:8080/brand">Brand</a>
+                    </li>
+                    <li  id="CATEGORY">
+                        <a href="http://localhost:8080/category">Category</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#requestSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-newspaper"></i>
+                    Request
+                </a>
+                <ul class="collapse list-unstyled" id="requestSubmenu">
+                    <li  id="REQUEST">
+                        <a href="http://localhost:8080/inventory">Request Details</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li id="REPORTS">
+                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-book"></i>
+                    Report
+                </a>
+                <ul class="collapse list-unstyled" id="reportSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/grnreport"> GRN Report </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/salesreport"> Sales Report </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/employeereport"> Employee Details Report </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+        <!-- Navbar  -->
+        <nav id="navBar" class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+            <div class="container-fluid">
+                <div class="float-left">
+                    <button type="button" id="sidebarCollapse" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary btn-lg rounded-circle ml-5">
+                        <a href="http://localhost:8080/mainwindow"> <i class="fa fa-home"></i></a>
+                    </button>
+
+                    <!-- Brand/logo -->
+                    <a class="navbar-brand" href="#">
+                        <img src="resourse/image/logo.png" alt=" logo">
+                    </a>
+
+                    <h1>KAUSHALYA</h1>
+                    <h1 class="ml-3">DISTRIBUTORS</h1>
+
+
+                    <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+                    <script>
+                        showTime();
+                    </script>
+
+                </div>
+
+
+
+                <form class="form-inline my-2 my-lg-0 mr-2 float-right">
+                    <h4 style="color: aliceblue">Login as :</h4>
+                    <h5 style="color: aliceblue" class="d-inline ml-2" id="lblLoggedAsUser"></h5>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" style="width: 200px" href="#"
+                                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <img id="profileImage" class="profileImage">
+                                    <p class="loggedUserNameField d-inline ml-2" id="lblLogUser">123456</p>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="width: 200px">
+                                    <!--                                    <a class="dropdown-item" href="#"><i class="fas fa-user-circle"></i> View Profile</a>-->
+                                    <a class="dropdown-item" href="#" onclick="btnSignoutMC()"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+        </nav>
+
+        <!-- Sub Menu Content -->
+        <div class="container-fluid" style="margin-top: -40px">
+            <div class="row">
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-users-cog"></i> Administration</b></a></button>
+                    <div class="dropdown-content">
+                        <a class="EMPLOYEE" href="http://localhost:8080/employee"><img src="resourse/image/menuitem/employee.png">Employee</a>
+                        <a class="USER" href="http://localhost:8080/user"><img src="resourse/image/menuitem/user.png">User</a>
+                        <a class="PRIVILAGE" href="http://localhost:8080/privilage"><img src="resourse/image/menuitem/privilege.png">Privilege</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-briefcase"></i> Purchases</b></button>
+                    <div class="dropdown-content">
+                        <a style="padding: 20px" class="SUPPLIER" href="http://localhost:8080/supplier"><img style="margin-right: 20px" src="resourse/image/menuitem/supplier.png">Supplier</a>
+                        <a style="padding: 20px" class="PORDER" href="http://localhost:8080/porder"><img style="margin-right: 20px" src="resourse/image/menuitem/porder.png">Purchase Order</a>
+                        <a style="padding: 20px" class="GRN" href="http://localhost:8080/grn"><img style="margin-right: 20px" src="resourse/image/menuitem/grn.png">GRN</a>
+                        <a style="padding: 20px" class="SPAYMENT" href="http://localhost:8080/spayment"><img style="margin-right: 20px" src="resourse/image/menuitem/spayment.png">Supplier Payment</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button id="active" class="dropbtn"><b><i class="fas fa-briefcase"></i> Sales</b></button>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-bus"></i> Distribution</b></button>
+                    <div class="dropdown-content">
+                        <a class="DISTRIBUTE" href="http://localhost:8080/distribute"><img src="resourse/image/menuitem/distribute.png">Distribution</a>
+                        <a class="VEHICLE" href="http://localhost:8080/vehicle"><img src="resourse/image/menuitem/vehicle.png">Vehicle</a>
+                        <a class="ROUTE" href="http://localhost:8080/route"><img src="resourse/image/menuitem/route.png">Root</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-store"></i> Inventory</b></button>
+                    <div class="dropdown-content">
+                        <a class="INVENTORY" href="http://localhost:8080/inventory"><img src="resourse/image/menuitem/inventory.png">Inventory</a>
+                        <a class="BATCH" href="http://localhost:8080/batch"><img src="resourse/image/menuitem/batch.png">Batch</a>
+                        <a class="ITEM" href="http://localhost:8080/item"><img src="resourse/image/menuitem/item.png">Item</a>
+                        <a class="BRAND" href="http://localhost:8080/brand"><img src="resourse/image/menuitem/brand.png">Brand</a>
+                        <a class="CATEGORY" href="http://localhost:8080/category"><img src="resourse/image/menuitem/category.png">Category</a>
+                    </div>
+                </div>
+
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-newspaper"></i> Request</b></button>
+                    <div class="dropdown-content">
+                        <a class="REQUEST" href="http://localhost:8080/request"><img style="margin-right: 20px" src="resourse/image/menuitem/requestform.png">Request Details</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Card Content -->
+        <div class="container-fluid dashbordbody">
+            <button class="btn card-menubar mt-4 CUSTOMER"><a href="http://localhost:8080/customer"><img src="resourse/image/menuitem/customer.png" width="60px" height="40px" style="margin-left: 0px;"></br><b>New Customer</b></a></button>
+            <button class="btn card-menubar mt-4 CORDER"><a href="http://localhost:8080/corder"><img src="resourse/image/menuitem/sorder.png" width="40px" height="40px" style="margin-left: 0px;"></br><b>Customer Order</b></a></button>
+            <button class="btn card-menubar mt-4 INVOICE"><a href="http://localhost:8080/invoice"><img src="resourse/image/menuitem/invoice.png" width="60px" height="40px" style="margin-left: 0px;"></br><b>Create Invoice</b></a></button>
+            <button class="btn mt-4 CPAYMENT"  id="activeCardMenu"><img src="resourse/image/menuitem/cpayment.png" width="60px" height="40px" style="margin-left: 0px;"></br><b>Make Payment</b></a></button>
+            <button class="btn card-menubar mt-4 CUSTOMERRETURN"><a href="http://localhost:8080/creturn"><img src="resourse/image/menuitem/creturn.png" width="60px" height="40px" style="margin-left: 0px;"></br><b>Manage Return</b></a></button>
+            <button class="btn card-menubar mt-4 CUSTOMERPOINT"><a href="http://localhost:8080/customerpoint"><img src="resourse/image/menuitem/customerpoint.png" width="60px" height="40px" style="margin-left: 0px;"></br><b>Customer Point</b></a></button>
+            <div id="cardPanel" style="background-image: url(resourse/image/57.jpg);background-size: cover;">
+                <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3>Customer Payment Management</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div id="searchArea">
+                                <form class="form-inline">
+                                    <div class="input-group">
+                                        <input style="display: inline;" type="text" placeholder="Search Here...." class="form-control" id="txtSearchname" onblur="this.focus()" />
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                        </div>
+                                    </div>
+
+                                    <button style="display: inline;" type="button" class="btn btn-outline-info ml-1" id="btnSearchClear"
+                                            onclick="btnSearchClearMC()"><i class='fa fa-recycle'></i> Clear Search </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6"></div>
+
+                        <div class="col-md-2 text-right">
+                            <button id="btnAddpayment" class="btn btn-success" data-toggle="modal" data-target="#formmodal"><img src="resourse/image/cpayment.png" width="40px" height="30px" class="mr-1"> Add New Payment</button>
+                        </div>
+                    </div>
+
+
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="formmodal" data-backdrop="static" tabindex="-1" role="dialog"
+                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="staticBackdropLabel"><img src="resourse/image/cpayment.png" width="50px" height="40px" class="mr-1">Customer Payment</h4>
+                                            <p id="topLable">
+                                                <span style="color: red; font-weight: bold; font-size: 22px;">*</span> Required Field
+                                            </p>
+                                            <button class="btn btn-danger" type="button" class="close" aria-label="Close" onclick="btnCloseMC()">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="modal-body" id="formview">
+                                            <div id="cpaymentform" onsubmit="return false">
+
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group row">
+                                                            <label for="txtNumber" class="col-md-4" style="padding-right: 1px; padding-left: 20px;"><b>Bill No :
+                                                                <span id="spnNumber" style="color: red; font-size: 22px; visibility: hidden;">*</span></b></label>
+                                                            <div class="col-md-8">
+                                                                <input type="text" class="form-control" id="txtNumber" placeholder="Auto gernarated after save" style="margin-left: -20px; width: 218px; padding-left: 8px"
+                                                                       data-toggle="tooltip" title="Auto gernarated"
+                                                                       onchange="textFieldBinder(txtNumber,'^[C][P][R][0-9]{5}$','cpayment','cbillno','oldcpayment')"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-5">
+                                                        <div class="form-group row">
+                                                            <label for="cmbCustomer" class="col-md-3" style="padding-left: 20px;"><b>Customer :
+                                                                <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                            <div class="col-md-9">
+                                                                <select id="cmbCustomer" class="form-control js-example-basic-single"
+                                                                        required data-toggle="tooltip" data-width="355px"
+                                                                        data-placement="bottom"
+                                                                        title="Select Customer"
+                                                                        onchange="comboBox2Binder(cmbCustomer,'','cpayment','customerId','oldcpayment'); cmbCustomerMC();"></select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="col-md-4">
+                                                    <div class="form-group row">
+                                                        <label for="txtArrears" class="col-md-5" style="padding-right: 1px; margin-left: -5px"><b>Previous Arrears :
+                                                            <span id="spnInvoice" style="color: red; font-size: 22px;">*</span></b></label>
+                                                        <div class="col-md-7">
+                                                            <div class="input-group form-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text">Rs</span>
+                                                                </div>
+                                                            <input type="text" class="form-control" id="txtArrears" placeholder="0.00" style="margin-left: -5px"
+                                                             onchange="textFieldBinder(txtArrears,'^(([0-9]{1,8})|([0-9]{1,8}[.][0-9]{2}))$','cpayment','oldbalance','oldcpayment')"/>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <button class="button btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                                            <span> View Customer Detail </span>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="col-md-4"></div>
+
+                                                    <div class="col-md-4">
+                                                            <div class="form-group row">
+                                                                <label for="txtNewArrears" class="col-md-5" style="padding-right: 1px; margin-left: -5px"><b>New Arrears :
+                                                                    <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                <div class="col-md-7">
+                                                                    <div class="input-group form-group">
+                                                                        <div class="input-group-prepend">
+                                                                            <span class="input-group-text">Rs</span>
+                                                                        </div>
+                                                                        <input type="text" class="form-control" id="txtNewArrears" style="margin-left: -5px" placeholder="0.00"
+                                                                               onchange="textFieldBinder(txtNewArrears,'^(([0-9]{1,8})|([0-9]{1,8}[.][0-9]{2}))$','cpayment','newbalance','oldcpayment')"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                                        <div class="collapse" id="collapseExample">
+                                                            <div class="card card-body" style="background-image: radial-gradient(circle,white, white,lightcyan,lightskyblue); border: 3px lightskyblue solid;">
+                                                                <div class="row" style="margin-top: -5px;">
+                                                                    <div class="col-md-3">
+                                                                        <div class="form-group row">
+                                                                            <label for="txtMobile" class="col-md-4" style="padding-right: 1px;"><b>Mobile :
+                                                                                <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                            <div class="col-md-8">
+                                                                                <input type="text" class="form-control" id="txtMobile" style="margin-left: -10px; width: 170px;"/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-5">
+                                                                        <div class="form-group row">
+                                                                            <label for="txtRoute" class="col-md-3"><b>Route :
+                                                                                <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                            <div class="col-md-9">
+                                                                                <input type="text" class="form-control" id="txtRoute" style="margin-left: -20px;"/>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-4">
+                                                                        <div class="form-group row">
+                                                                            <label for="txtCreditLimit" class="col-md-5" style="padding-right: 1px;"><b>Credit Limit :
+                                                                                <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                            <div class="col-md-7">
+                                                                                <div class="input-group form-group">
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text">Rs</span>
+                                                                                    </div>
+                                                                                    <input type="text" class="form-control" id="txtCreditLimit"/>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <!--</div>-->
+                                                <!--</div>-->
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <fieldset id="invoiceFlied" style="padding: 0px 0px 10px 0px; border: 2px solid #ddd; border-radius: 10px; height: auto;">
+                                                            <legend id="invoiceFliedLegend" style="border: 2px solid #ddd; padding: 5px 5px 5px 5px; background-color: white;font-size: 17px;font-weight: bold;text-align: center; width: 300px; border-radius: 20px;">Payment Appling to Invoice</legend>
+                                                            <div class="panel panel-defalt">
+                                                                <div class="panel-body">
+                                                                    <div class="col-md-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-5">
+                                                                                <div class="form-group row">
+                                                                                    <label for="txtRecievedAmount" class="col-md-6"><b>Recieved Amount (Rs):
+                                                                                        <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                                    <div class="col-md-6" style="margin-left: -40px">
+                                                                                        <div class="input-group form-group">
+                                                                                            <div class="input-group-prepend">
+                                                                                                <span class="input-group-text">Rs</span>
+                                                                                            </div>
+                                                                                            <input type="text" id="txtRecievedAmount" class="form-control" placeholder="0.00"
+                                                                                                   required onblur="txtRecievedAmount.value = parseFloat(txtRecievedAmount.value).toFixed(2); textFieldBinder(txtRecievedAmount,'^(([0-9]{1,8})|([0-9]{1,8}[.][0-9]{2}))$','cpaymentinvoice','paidamount','oldcpaymentinvoice')">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-2"></div>
+
+                                                                            <div class="col-md-5">
+                                                                                <div class="form-group row">
+                                                                                    <label for="txtAvailableamount" class="col-md-5"><b>Available to Apply :
+                                                                                        <span style="color: red; font-size: 22px; visibility: hidden">*</span></b></label>
+                                                                                    <div class="col-md-7">
+                                                                                        <div class="input-group form-group">
+                                                                                            <div class="input-group-prepend">
+                                                                                                <span class="input-group-text">Rs</span>
+                                                                                            </div>
+                                                                                            <input type="text" id="txtAvailableamount" class="form-control" placeholder="0.00" style="background: lightcyan;"
+                                                                                               disabled onkeyup="txtRecievedAmountKU();">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div id="invoiceBox" class="container jumbotron">
+                                                                        <div class="row">
+                                                                            <div class="col-md-2">
+                                                                                <div class="form-group">
+                                                                                    <label for="cmbInvoice"><b>Invoice No
+                                                                                        <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                                    <div style="margin-top: -8px;">
+                                                                                        <select class="form-control" id="cmbInvoice"
+                                                                                                required onchange="comboBoxBinder(cmbInvoice,'','cpaymentinvoice','invoiceId','oldcpaymentinvoice')">
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-2">
+                                                                                <div class="form-group">
+                                                                                    <label for="dteInvoicedate"><b>Invoice Date
+                                                                                        <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                                    <div style="margin-top: -8px;">
+                                                                                        <input type="date" class="form-control" id="dteInvoicedate" placeholder="" style="padding-left: 4px;"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-2">
+                                                                                <div class="form-group">
+                                                                                    <label for="txtInvoiceamount"><b>Invoice Amount
+                                                                                        <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                                    <div class="input-group form-group" style="margin-top: -8px;" >
+                                                                                        <div class="input-group-prepend">
+                                                                                            <span class="input-group-text">Rs</span>
+                                                                                        </div>
+                                                                                        <input type="text" class="form-control" id="txtInvoiceamount" placeholder="0.00"
+                                                                                               onchange="textFieldBinder(txtInvoiceamount,'^(([0-9]{1,8})|([0-9]{1,8}[.][0-9]{2}))$','cpaymentinvoice','invoiceamount','oldcpaymentinvoice')"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-2">
+                                                                                <div class="form-group">
+                                                                                    <label for="dteCheque"><b>Outstanding
+                                                                                        <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                                    <div class="input-group form-group" style="margin-top: -8px;" >
+                                                                                        <div class="input-group-prepend">
+                                                                                            <span class="input-group-text">Rs</span>
+                                                                                        </div>
+                                                                                        <input type="text" class="form-control" id="txtOutstanding" placeholder="0.00"
+                                                                                               onchange="textFieldBinder(txtOutstanding,'^(([0-9]{1,8})|([0-9]{1,8}[.][0-9]{2}))$','cpaymentinvoice','outstanding','oldcpaymentinvoice')"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-2">
+                                                                                <div class="form-group">
+                                                                                    <label for="txtApply"><b>Applying Amount
+                                                                                        <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                                    <div class="input-group form-group" style="margin-top: -8px;" >
+                                                                                        <div class="input-group-prepend">
+                                                                                            <span class="input-group-text">Rs</span>
+                                                                                        </div>
+                                                                                    <input type="text" class="form-control" id="txtApply" placeholder="0.00"
+                                                                                           onkeyup="textFieldBinder(txtApply,'^(([0-9]{1,8})|([0-9]{1,8}[.][0-9]{2}))$','cpaymentinvoice','applingamount','oldcpaymentinvoice')"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            <div class="col-md-2">
+                                                                                <div id="btnInnerInvoice" class="form-group">
+                                                                                    <label>
+                                                                                        <span style="color: red; font-size: 22px; visibility: hidden">*</span></label>
+                                                                                    <div style="margin-top: -8px;">
+                                                                                        <button class="btn btn-success" style="width: 45%; border: 3px solid forestgreen;" id="btnInnerInvoiceAdd" onclick="btnInvoiceInnerAddMC()">Add</button>
+                                                                                        <button class="btn btn-info" style="width: 52%; border: 3px solid darkcyan;" onclick="btnInvoiceInnerClearMC()">Clear</button>
+                                                                                        <!--<buttonclass="btn btn-info" style="width: 45%">Clear</button>-->
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        </div>
+
+
+
+                                                                        <div id="invoiceinnertable" class="mt-2">
+                                                                            <script>
+                                                                                var metadatainner = [
+                                                                                    {name: 'Invoice No', search:false, datatype: 'text', property: 'invoiceId.invoiceno'},
+                                                                                    {name: 'Invoice Date', search:false, datatype: 'text', property: 'invoiceId.date'},
+                                                                                    {name: 'Invoice Amount (Rs)', search:false, datatype: 'text', property: 'invoiceamount'},
+                                                                                    {name: 'Outstanding (Rs)', search:false, datatype: 'text', property: 'outstanding'},
+                                                                                    {name: 'Applying Amount (Rs)', search:false, datatype: 'text', property: 'applingamount'}
+                                                                                ]
+                                                                                tableForInnerForm("invoiceinnertable", "tblInnerInvoices",metadatainner,true);
+                                                                            </script>
+                                                                        </div>
+                                                                    </div>
+
+
+
+
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+
+
+
+                                                </br></br>
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <fieldset id="methodFlied" style="padding: 0px 0px 10px 0px; border: 2px solid #ddd; border-radius: 10px; height: auto;">
+                                                            <legend id="methodFliedLegend" style="border: 2px solid #ddd; padding: 5px 5px 5px 5px; background-color: white;font-size: 17px;font-weight: bold;text-align: center; width: 300px; border-radius: 20px;">Payment Method Details</legend>
+                                                            <div class="panel panel-defalt">
+                                                                <div class="panel-body">
+                                                                    <div id="methodBox" class="container jumbotron">
+                                                                        <div class="col-md-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-2">
+                                                                                <div class="form-group">
+                                                                                    <label for="cmbPaymentMethod"><b>Payment Method
+                                                                                        <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                                    <div style="margin-top: -8px;">
+                                                                                        <select class="form-control" id="cmbPaymentMethod" style="padding-left: 8px"
+                                                                                                required onchange="comboBoxBinder(cmbPaymentMethod,'','cpaymentmethod','cpmethodId','oldcpaymentmethod')">
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-3">
+                                                                                <div class="form-group">
+                                                                                    <label for="txtCashChequeAmount"><b>Cash/Cheque Amount (Rs)
+                                                                                        <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                                    <div class="input-group form-group" style="margin-top: -8px;" >
+                                                                                        <div class="input-group-prepend">
+                                                                                            <span class="input-group-text">Rs</span>
+                                                                                        </div>
+                                                                                        <input type="text" class="form-control" id="txtCashChequeAmount" placeholder="0.00"
+                                                                                               onblur="txtCashChequeAmount.value = parseFloat(txtCashChequeAmount.value).toFixed(2); textFieldBinder(txtCashChequeAmount,'^(([0-9]{1,8})|([0-9]{1,8}[.][0-9]{2}))$','cpaymentmethod','cashorchequevalue','oldcpaymentmethod')"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+
+                                                                            <div class="col-md-2">
+                                                                                <div class="form-group">
+                                                                                    <label for="txtCheque"><b>Cheque Number
+                                                                                        <span style="color: red; font-size: 22px; visibility: hidden;">*</span></b></label>
+                                                                                    <div style="margin-top: -8px;">
+                                                                                        <input type="text" class="form-control" id="txtCheque" placeholder="Cheque Number"
+                                                                                               onkeyup="textFieldBinder(txtCheque,'^[0-9]{3,}$','cpaymentmethod','chequeno','oldcpaymentmethod')"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-2">
+                                                                                <div class="form-group">
+                                                                                    <label for="dteCheque"><b>Clear Of Date
+                                                                                        <span style="color: red; font-size: 22px; visibility: hidden;">*</span></b></label>
+                                                                                    <div style="margin-top: -8px;">
+                                                                                        <input type="date" class="form-control" id="dteCheque" placeholder="Enter Cheque Date" style="padding: 4px;"
+                                                                                               onchange="textFieldBinder(dteCheque,'','cpaymentmethod','chequedate','oldcpaymentmethod')"/>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="col-md-3">
+                                                                                <div id="btnInnerMethod" class="form-group">
+                                                                                    <label>
+                                                                                        <span style="color: red; font-size: 22px; visibility: hidden;">*</span></label>
+                                                                                    <div style="margin-top: -8px;">
+                                                                                        <button class="btn btn-success" style="width: 32%; border: 3px solid forestgreen;" id="btnInnerCPMethodAdd" onclick="btnCpMethodInnerAddMC()">Add</button>
+                                                                                        <button class="btn btn-warning" style="width: 34%; border: 3px solid orange;" id="btnInnerCPMethodUpdate" onclick="btnInnerMethodUpdateMC()">Update</button>
+                                                                                        <button class="btn btn-info" style="width: 30%; border: 3px solid darkcyan;" onclick="btnCPMethodInnerClearMC()">Clear</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-12">
+                                                                    <div id="cpmethodsinnertable" class="mt-2">
+                                                                        <script>
+                                                                            function getCashorchequevalue(ob) {
+                                                                                return toDecimal(ob.cashorchequevalue,2);
+                                                                            }
+
+                                                                            var metadatainner = [
+                                                                                {name: 'Payment Method', search:false, datatype: 'text', property: 'cpmethodId.name'},
+                                                                                {name: 'Cash/Cheque Amount (Rs)', search:false, datatype: 'text', property: getCashorchequevalue},
+                                                                                {name: 'Cheque Number', search:false, datatype: 'text', property: 'chequeno'},
+                                                                                {name: 'Clear Of Date', search:false, datatype: 'text', property: 'chequedate'}
+                                                                            ]
+                                                                            tableForInnerForm("cpmethodsinnertable", "tblCpMethodsInnerItem",metadatainner,true);
+                                                                        </script>
+
+                                                                    </div>
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-4">
+                                                    <div class="col-md-6" style="padding-left: 25px;">
+                                                        <div class="form-group row">
+                                                            <label for="txtTotalCashChequeAmount" class="col-md-7" style="padding-left: -10px;"><b>Total Amount (Cash And Cheque) (Rs):
+                                                                <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                            <div class="col-md-5">
+                                                                <div class="input-group form-group" style="margin-left: 0px; width: 260px;">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text">Rs</span>
+                                                                    </div>
+                                                                    <input type="text" id="txtTotalCashChequeAmount" class="form-control" placeholder="0.00"
+                                                                           required onchange="textFieldBinder(txtTotalCashChequeAmount,'^(([0-9]{1,8})|([0-9]{1,8}[.][0-9]{2}))$','cpayment','totalamount','oldcpayment')">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-5">
+                                                        <div class="form-group row">
+                                                            <label for="txtRecievedDate" class="col-md-5" style="margin-left: 45px"><b>Recieved Date:
+                                                                <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                            <div class="col-md-5">
+                                                                <input type="date" class="form-control" id="txtRecievedDate" style="width: 320px; margin-left: 0px;"
+                                                                       onchange="textFieldBinder(txtRecievedDate,'','cpayment','recieveddate','oldcpayment')"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-1">
+                                                    <div class="col-md-7">
+                                                        <fieldset id="fldDescription" style="padding: 0px; border: 2px solid #ddd; border-radius: 10px; background: white; width: 600px;
+                                                         height: 100px; margin-top: -5px; margin-left: 15px;">
+                                                            <legend style="font-size: 16px;font-weight: bold;text-align: center;width: 150px;  background: none;">Description </legend>
+                                                            <div class="panel panel-defalt">
+                                                                <div class="panel-body">
+                                                                    <div class="col-md-12">
+                                                                   <textarea id="txtDescription" type="text" class="form-control" placeholder="Enter Description Here (Optional)" style="border: 0px; height: 70px; width: 570px; margin-top: -10px; padding: 0px;"
+                                                                             onkeyup="fieldsetBinder(fldDescription,txtDescription,'^.*$','cpayment','description','oldcpayment')"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                        </div>
+
+
+                                                    <div class="col-md-5">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group row">
+                                                                    <label for="cmbCpaymentstatus" class="col-md-5" style="margin-left: -60px"><b>Payment Status :
+                                                                        <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                    <div class="col-md-6">
+                                                                        <select class="form-control" id="cmbCpaymentstatus" style="width: 320px; margin-left: 0px;"
+                                                                                required onchange="comboBoxBinder(cmbCpaymentstatus,'','cpayment','cpaymentstatusId','oldcpayment')">
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-12">
+                                                                <div class="form-group row">
+                                                                    <label for="cmbEmployeecreated" class="col-md-5" style="margin-left: -60px"><b>Created By :
+                                                                        <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                    <div class="col-md-6">
+                                                                        <select class="form-control" id="cmbEmployeecreated" style="width: 320px; margin-left: 0px;"
+                                                                                required onchange="comboBoxBinder(cmbEmployeecreated,'','cpayment','employeeId','oldcpayment')">
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <br/>
+
+
+
+                                            <div class="modal-footer">
+                                                <input type="checkbox"  class="largerCheckbox" id="chkClose" name="example2">
+                                                <label style="font-size: 18px; color: darkslategray;margin-right: 380px" for="chkClose">Keep this window open to enter details continously</label>
+
+                                                <button type="button" id="btnClear" class="btn bg-primary ml-3" style="width: 15%; color: white; font-size: large;" onclick="btnClearMC()">
+                                                    <i class='fa fa-eraser'></i> Clear
+                                                </button>
+
+                                                <button type="submit" id="btnAdd" class="btn bg-success ml-3"style="width: 15%; color: white; font-size: large;" onclick="btnAddMC()">
+                                                    <i class="fa fa-save"></i> Save
+                                                </button>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+                    <div class="row mt-3">
+                        <div class="col-md-12" id="tableview">
+                            <div class="table-responsive" id="tableParent" class="table-container ml-2">
+
+                                <script>
+                                    function getTotalArrears(ob) {
+                                        return toDecimal(ob.oldbalance,2);
+                                    }
+
+                                    function getRecievedAmount(ob) {
+                                        return toDecimal(ob.totalamount,2);
+                                    }
+
+
+                                    function getNewArrears(ob) {
+                                        return toDecimal(ob.newbalance,2);
+                                    }
+
+
+
+                                    var metadata = [
+                                        { name: 'Bill No', search: false, datatype: 'text', property: 'cbillno'},
+                                        { name: 'Customer', search: false, datatype: 'text', property: 'customerId.cname'},
+                                        { name: 'Total Arrears (Rs)', search: false, datatype: 'text', property: getTotalArrears},
+                                        { name: 'Recieved Amount(Rs)', search: false, datatype: 'text', property: getRecievedAmount},
+                                        { name: 'New Arrears (Rs)', search: false, datatype: 'text', property: getNewArrears},
+                                        { name: 'Recieved Date', search: false, datatype: 'text', property: 'recieveddate'},
+                                        { name: 'Payment Status ', search: false, datatype: 'text', property: 'cpaymentstatusId.name'},
+                                        { name: 'Created By', search: false, datatype: 'text', property: 'employeeId.callingname'}
+                                    ];
+                                    table("tableParent", "tblCpayment", metadata, true);
+
+                                </script>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="card-footer">
+
+
+                    <div style="display: flex;">
+                        <div style="display: inline-block;">
+                            <select class="form-control input" id="cmbPagesize"
+                                    style="width: 80px;">
+                                <option selected value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                                <option value="1000">1000</option>
+                            </select>
+                            <script>
+                                cmbPagesize.onchange = function chnagePageSize() {
+                                    activepage=1;
+                                    btnSearchMC();
+                                };
+                            </script>
+                        </div>
+                        <div style="display: inline-block; margin-left: 10px;">
+                            <ul id="pagination" class="pagination"></ul>
+                        </div>
+
+                        <div class="container-fluid">
+                            <div class="float-right">
+                                <button class="form-control btn btn-info" style="width: 150px; float:right" onclick="btnPrintTableMC()"><i class="fa fa-print"></i> Print Table</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Print view Table -->
+        <div class="modal fade" id="dataviewModal" data-backdrop="static" tabindex="-1" role="dialog"
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width:1000px;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="staticBackdropLabel2"><img src="resourse/image/print.png" alt="" width="40px" height="40px" class="mr-1">Payment Receipt Deatails</h4>
+                        <button class="btn btn-danger" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="printformtable">
+                        <table class="table-sm" id="invprintview" style="font-size: medium;">
+                            <tr>
+                                <td style="background: #0492c2; color: white; width: 250px; text-align: center;"><b>Receipt No</b></td>
+                                <td style="background: #0492c2; color: white; width: 250px; text-align: center;"><b>Receipt Date</b></td>
+                                <td></td>
+                                <td colspan="2" rowspan="2"><h1 style="color: #0492c2; font-weight: bold; width: 500px; text-align: center;">Kaushalya Distributors</h1></td>
+                            </tr>
+
+                            <tr>
+                                <td style="width: 250px; text-align: center;" id="tbNumber"> </td>
+                                <td style="width: 250px; text-align: center;" id="tbRecievedDate"> </td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td style="background: #0492c2; color: white; width: 250px; text-align: center;"><b>Customer ID</b></td>
+                                <td style="background: #0492c2; color: white; width: 250px; text-align: center;"><b>Order No</b></td>
+                                <td></td>
+                                <td colspan="2" rowspan="2"><h1 style="color: #0492c2; font-weight: bold; width: 500px; text-align: center;">Payment Receipt</h1></td>
+                            </tr>
+
+                            <tr>
+                                <td style="width: 250px; text-align: center;" id="tbCusId"> </td>
+                                <td style="width: 250px; text-align: center;" id="tbCorder"> </td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td style="height: 10px;"></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" style="background: #0492c2; color: white; width: 500px;"><b>BILL TO : <span id="tbCustomer"></span> </b></td>
+                                <td></td>
+                                <td colspan="2" style="background: #0492c2; color: white; width: 500px;"><b>DISTRIBUTOR : <span>Kaushalya Distributors</span></b></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" style="width: 500px;"><b>Address : </b><span id="tbCAddress"> </span></td>
+                                <td></td>
+                                <td colspan="2" style="width: 500px;"><b>Address : </b><span> "Sashmitha" Athpantiya Road, Kuda Payagala, Payagala</span></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" style="width: 500px;"><b>Telephone : </b><span id="tbCMobile"> </span></td>
+                                <td></td>
+                                <td colspan="2" style="width: 500px;"><b>Telephone : </b><span> 0716543556</span></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" style="width: 500px;"><b>Route : </b><span id="tbRoute"> </span></td>
+                                <td></td>
+                                <td colspan="2" style="width: 500px;"><b>Sales Rep : </b><span id="tbRep"> </span></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" style="width: 500px;"><b>Email : </b><span id="tbEmail"> </span></td>
+                                <td></td>
+                                <td colspan="2" style="width: 500px;"><b>Print Date : </b><span id="tbPrintDate"> </span></td>
+                            </tr>
+
+                            <tr>
+                                <td style="height: 10px;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td class="font-weight-bold" colspan="5" id="printinnertable"></td>
+                                <script>
+                                    function getInvoiceamount(ob) {
+                                        return toDecimal(ob.invoiceamount,2);
+                                    }
+
+                                    function getOutstanding(ob) {
+                                        return toDecimal(ob.outstanding,2);
+                                    }
+
+                                    function getApplingamount(ob) {
+                                        return toDecimal(ob.applingamount,2);
+                                    }
+
+                                    var metadatainner = [
+                                        {name: 'Invoice No', search:false, datatype: 'text', property: 'invoiceId.invoiceno'},
+                                        // {name: 'Invoice Date', search:false, datatype: 'text', property: 'invoiceId.date'},
+                                        {name: 'Invoice Amount (Rs)', search:false, datatype: 'text', property: getInvoiceamount},
+                                        {name: 'Outstanding (Rs)', search:false, datatype: 'text', property: getOutstanding},
+                                        {name: 'Applying Amount (Rs)', search:false, datatype: 'text', property: getApplingamount}
+                                    ]
+                                    tableForInnerForm("printinnertable","tblPrintInnerIvoice",metadatainner,false)
+                                </script>
+                            </tr>
+
+
+                            <tr>
+                                <script>
+                                    function getCashorchequevalue(ob) {
+                                        return toDecimal(ob.cashorchequevalue,2);
+                                    }
+
+                                    var metadatainner = [
+                                        {name: 'Payment Method', search:false, datatype: 'text', property: 'cpmethodId.name'},
+                                        {name: 'Cheque Number', search:false, datatype: 'text', property: 'chequeno'},
+                                        {name: 'Clear Of Date', search:false, datatype: 'text', property: 'chequedate'},
+                                        {name: 'Recieved Amount (Rs)', search:false, datatype: 'text', property: getCashorchequevalue}
+                                    ]
+                                    tableForInnerForm("printinnertable","tblPrintInnerMethod",metadatainner,false)
+
+                                </script>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" rowspan="3"  style="width: 500px; color: #0492c2;" id="tbDescription"></td>
+                                <td></td>
+                                <td style="width: 400px;"><b>Previous Arrears (Rs) : </b></td>
+                                <td style="width: 100px;" id="tbArrears"> </td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td style="width: 400px;"><b>Recieved Amount (Rs) : </b></td>
+                                <td style="width: 100px;" id="tbRecievedAmount"> </td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td style="width: 400px;"><b>New Arrears (Rs) : </b></td>
+                                <td style="width: 100px; border-top: 1px dotted black; font-weight: bold;" id="tbNewArrears"> </td>
+                            </tr>
+
+                            <tr>
+                                <td style="height: 30px;"></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="5" style="text-align: center;"><b><i>Thank you for your business!</i></b></td>
+                            </tr>
+
+                            <tr>
+                                <td style="height: 30px;"></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="5" style="text-align: center; font-size: 14px;">If you have any questions about this payment receipt, please contact</td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="5" style="text-align: center; font-size: 14px;"><b>[Samaka, 071-6543556, kaushalyadistributors@gmail.com]</b></td>
+                            </tr>
+
+                        </table>
+                    </div>
+
+                    <div class="modal-footer" style="background: lightskyblue;">
+                        <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal" style="width: 20%" class="m1-5">Close</button>
+                        <button type="button" style="width: 20%" class="btn btn-primary ml-3" onclick="printMC()"><i class="fa fa-print"></i> Print</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--<div id="err" style="margin-top: 200px"></div>-->
+
+    </div>
+</div>
+
+<div class="overlay"></div>
+
+</body>
+
+</html>

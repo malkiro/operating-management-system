@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../resourse/bootstrap/css/bootstrap.min.css">
+
+    <script src="../resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="../resourse/jquery/popper.min.js"></script>
+    <script src="../resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../resourse/script/common.bitproject.js"></script>
+
+    <script src="../resourse/chart/Chart.js"></script>
+    <script src="../resourse/chart/chartjs-plugin-colorschemes.js"></script>
+    <link rel="stylesheet" href="../resourse/chart/C hart.css">
+</head>
+<body>
+
+<div class="container-fluid mt-5" style="width: 800px">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="txtSdate"> <b>Start date: <span style="color:red; font-size:24px">*</span></b></label>
+                <input type="date" id="txtSdate" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group ">
+                <label for="txtEdate"> <b>End date: <span style="color:red; font-size:24px">*</span></b></label>
+                <input type="date" id="txtEdate" class="form-control"/>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <input type="button" class="btn bg-primary" value="Get Report" onclick="getReport()">
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <canvas id="myChart" width="400px" height="400px"></canvas>
+        </div>
+
+        <div class="col-md-6" id="tableParent">
+
+            <script>
+
+                function getamount(ob) {
+                    return parseFloat(ob.amount).toFixed(2);
+                }
+
+                var metadata = [
+                    {name: 'Sales Date', search: false, datatype: 'text', property: 'date'},
+                    {name: 'Sales Count', search: false, datatype: 'text', property: 'count'},
+                    {name: 'Total Sales Amunt', search: false, datatype: 'text', property: getamount}
+                ];
+                table("tableParent", "tblSales", metadata, false);
+
+            </script>
+
+        </div>
+    </div>
+
+    <div class="row" id="err"></div>
+</div>
+
+
+<script>
+    function getReport() {
+        var saleses = httpRequest("/grnreport?sdate=" + txtSdate.value + "&edate=" + txtEdate.value, "GET");
+        var labels = new Array();
+        var data = new Array();
+        var salesList = new Array();
+
+        for (var index in saleses) {
+            labels.push(saleses[index][1]);
+            data.push(saleses[index][0]);
+            var sales = new Object();
+            sales.count = saleses[index][0];
+            sales.date = saleses[index][1];
+            sales.amount = saleses[index][2];
+            salesList.push(sales);
+        }
+        fillTable('tblSales', salesList, fillForm, btnDeleteMC, batchview);
+
+
+        var ctx = document.getElementById('myChart');
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '# of Votes',
+                    data: data,
+                    fill: false,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                plugins: {
+
+                    colorschemes: {
+
+                        scheme: 'brewer.Paired12'
+
+                    }
+
+                }
+
+            }
+        });
+
+    }
+
+    function fillForm() {
+    }
+
+    function btnDeleteMC() {
+    }
+
+    function batchview() {
+    }
+</script>
+</body>
+</html>

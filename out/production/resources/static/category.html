@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BIT Final Project</title>
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resourse/bootstrap/css/font-awesome.min.css">
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="resourse/style/home.css">
+    <link rel="stylesheet" href="resourse/style/common.css">
+    <link rel="stylesheet" href="resourse/style/style3.css">
+    <link rel="stylesheet" href="resourse/style/common2.css">
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <script src="resourse/script/mainWindow.js"></script>
+
+    <script src="resourse/script/sweetalert.min.js"></script>
+
+    <script defer src="resourse/fontawesome/js/solid.js"></script>
+    <script defer src="resourse/fontawesome/js/fontawesome.js"></script>
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap4-toggle.min.css">
+    <script src="resourse/bootstrap/js/bootstrap4-toggle.min.js"></script>
+
+    <link href="resourse/select2/css/select2.min.css" rel="stylesheet" />
+    <script src="resourse/select2/js/select2.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="category.js"></script>
+
+    <style>
+        /*-------------------Menu Heading--------------*/
+        #active{
+            border: 3px solid black;
+        }
+
+        .dropbtn {
+            font-size: 16px;
+            cursor: pointer;
+            width: 281px;
+            color: black;
+            padding: 0px;
+            height: 35px;
+            text-align: center;
+            border: 1px rgb(161, 161, 161)
+            solid; border: 2px #5a6268 solid;
+            box-shadow: 0 0 6px blue;
+            background-image: url(resourse/image/backgroungbox.png)
+        }
+
+        .dropbtn:hover{
+            background: lightcyan;
+            font-size: 17px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: lightcyan;
+            min-width: 281px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border: 1px solid cyan;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 30px;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .dropdown-content img{
+            border: 1px solid black;
+            margin: 0px 30px 0px 0px;
+            border-radius: 50%;
+            display: inline;
+        }
+
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            border-radius: 30px;
+            border: 1px solid cyan;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        /*-------------Card Panel And Card Menu Bar----------------*/
+        .card-menubar{
+            background-image: url(resourse/image/57.jpg);
+        }
+
+        /*Card Body*/
+        #tableParent2{background: linear-gradient(lightskyblue, lightcyan,lightskyblue, lightcyan,lightskyblue);}
+
+
+        /*Model Footer*/
+        #topLableCat{margin-left: 10px;color: #1b1e21; font-size: 16px;}
+        #topLableSub{margin-left: 10px;color: #1b1e21; font-size: 16px;}
+
+
+
+
+
+
+
+        @media only screen and (max-width: 820px) and (min-width: 421px) {
+            /*Card Body*/
+            #btnAddorder{width: 102px; margin-left: -40px;}
+
+
+            /*Model Footer*/
+            /*#bottomLable{margin-right: 270px; font-size: 11px;}*/
+        }
+
+        .tooltip-inner {
+            background-color: #f00;
+        }
+
+        fieldset {
+            border: 1px solid #ddd;
+            margin-top: 12px;
+            padding: 10px;
+            border-radius: 15px;
+            height: 210px;
+        }
+
+        legend {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            width: 70px;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar" style="background-image: url(resourse/image/6.jpg);background-size: cover;">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header mt-5 mr-1 ml-1">
+            <div class="row">
+                <div class="col-md-3" style="padding: 0px">
+                    <img src="resourse/image/logo.png" alt=" logo">
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12"><h3 class="ml-2">Kaushalya</h3></div>
+                        <div class="col-md-12"><h3 class="ml-2">Distributors</h3></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <ul class="list-unstyled components">
+
+            <li>
+                <a href="http://localhost:8080/mainwindow">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-users-cog"></i>
+                    Administration
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li id="EMPLOYEE">
+                        <a href="http://localhost:8080/employee">Employee</a>
+                    </li>
+                    <li id="USER">
+                        <a href="http://localhost:8080/user">User</a>
+                    </li>
+                    <li id="PRIVILAGE">
+                        <a href="http://localhost:8080/privilage">Privilage</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#purchaseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Purchase
+                </a>
+                <ul class="collapse list-unstyled" id="purchaseSubmenu">
+                    <li id="SUPPLIER">
+                        <a href="http://localhost:8080/supplier"> Supplier </a>
+                    </li>
+                    <li id="PORDER">
+                        <a href="http://localhost:8080/porder"> Purchase Order </a>
+                    </li>
+                    <li id="GRN">
+                        <a href="http://localhost:8080/grn"> GRN </a>
+                    </li>
+                    <li  id="SPAYMENT">
+                        <a href="http://localhost:8080/spayment"> Supplier Payment </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Dropdown -->
+            <li>
+                <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Sales
+                </a>
+                <ul class="collapse list-unstyled" id="salesSubmenu">
+                    <li id="CUSTOMER">
+                        <a href="http://localhost:8080/customer"> Customer </a>
+                    </li>
+                    <li id="CUSTOMERPOINT">
+                        <a href="http://localhost:8080/customerpoint"> Customer Point </a>
+                    </li>
+                    <li  id="CORDER">
+                        <a href="http://localhost:8080/corder"> Customer Order </a>
+                    </li>
+                    <li  id="INVOICE">
+                        <a href="http://localhost:8080/invoice"> Customer Invoice </a>
+                    </li>
+                    <li id="CPAYMENT">
+                        <a href="http://localhost:8080/cpayment"> Customer Payment </a>
+                    </li>
+                    <li id="CUSTOMERRETURN">
+                        <a href="http://localhost:8080/creturn"> Customer Return </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#distributeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-bus"></i>
+                    Distribution
+                </a>
+                <ul class="collapse list-unstyled" id="distributeSubmenu">
+                    <li  id="DISTRIBUTE">
+                        <a href="http://localhost:8080/distribute">Distribution</a>
+                    </li>
+                    <li  id="VEHICLE">
+                        <a href="http://localhost:8080/vehicle">Vehicle</a>
+                    </li>
+                    <li  id="DISTRIBUTIONROUTE">
+                        <a href="http://localhost:8080/route">Route</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#inventorySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-store"></i>
+                    Inventory
+                </a>
+                <ul class="collapse list-unstyled" id="inventorySubmenu">
+                    <li  id="INVENTORY">
+                        <a href="http://localhost:8080/inventory">Inventory</a>
+                    </li>
+                    <li  id="BATCH">
+                        <a href="http://localhost:8080/batch">Batch</a>
+                    </li>
+                    <li  id="ITEM">
+                        <a href="http://localhost:8080/item">Item</a>
+                    </li>
+                    <li id="BRAND">
+                        <a href="http://localhost:8080/brand">Brand</a>
+                    </li>
+                    <li  id="CATEGORY">
+                        <a href="http://localhost:8080/category">Category</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#requestSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-newspaper"></i>
+                    Request
+                </a>
+                <ul class="collapse list-unstyled" id="requestSubmenu">
+                    <li  id="REQUEST">
+                        <a href="http://localhost:8080/inventory">Request Details</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-book"></i>
+                    Report
+                </a>
+                <ul class="collapse list-unstyled" id="reportSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/grnreport"> GRN Report </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/salesreport"> Sales Report </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report3"> Report 3 </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/report4"> Report 4 </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="http://localhost:8080/portfolio">
+                    <i class="fas fa-image"></i> Portfolio</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+        <!-- Navbar  -->
+        <nav id="navBar" class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+            <div class="container-fluid">
+                <div class="float-left">
+                    <button type="button" id="sidebarCollapse" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary btn-lg rounded-circle ml-5">
+                        <a href="http://localhost:8080/mainwindow"> <i class="fa fa-home"></i></a>
+                    </button>
+
+                    <!-- Brand/logo -->
+                    <a class="navbar-brand" href="#">
+                        <img src="resourse/image/logo.png" alt=" logo">
+                    </a>
+
+                    <h1>KAUSHALYA</h1>
+                    <h1 class="ml-3">DISTRIBUTORS</h1>
+
+
+                    <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+                    <script>
+                        showTime();
+                    </script>
+
+                </div>
+
+
+
+                <form class="form-inline my-2 my-lg-0 mr-2 float-right">
+                    <h4 style="color: aliceblue">Login as :</h4>
+                    <p class="loggedUserNameField d-inline ml-2" id=""></p>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" style="width: 200px" href="#"
+                                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <img id="profileImage" class="profileImage">
+                                    <p class="loggedUserNameField d-inline ml-2" id="lblLogUser">123456</p>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="width: 200px">
+                                    <a class="dropdown-item" href="#"><i class="fas fa-user-circle"></i> View Profile</a>
+                                    <a class="dropdown-item" href="#" onclick="btnSignoutMC()"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+        </nav>
+
+        <!-- Sub Menu Content -->
+        <div class="container-fluid" style="margin-top: -40px">
+            <div class="row">
+                <div class="dropdown">
+                    <button class="dropbtn"><a href="employee.html"><b><i class="fas fa-users-cog"></i> Administration</b></a></button>
+                    <div class="dropdown-content">
+                        <a class="EMPLOYEE" href="employee.html"><img src="resourse/image/menuitem/employee.png">Employee</a>
+                        <a class="USER" href="user.html"><img src="resourse/image/menuitem/user.png">User</a>
+                        <a class="PRIVILAGE" href="privilage.html"><img src="resourse/image/menuitem/privilege.png">Privilege</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><a href="porder.html"><b><i class="fas fa-briefcase"></i> Purchases</b></a></button>
+                    <div class="dropdown-content">
+                        <a style="padding: 20px" class="SUPPLIER" href="supplier.html"><img style="margin-right: 20px" src="resourse/image/menuitem/supplier.png">Supplier</a>
+                        <a style="padding: 20px" class="PORDER" href="porder.html"><img style="margin-right: 20px" src="resourse/image/menuitem/porder.png">Purchase Order</a>
+                        <a style="padding: 20px" class="GRN" href="grn.html"><img style="margin-right: 20px" src="resourse/image/menuitem/grn.png">GRN</a>
+                        <a style="padding: 20px" class="SPAYMENT" href="spayment.html"><img style="margin-right: 20px" src="resourse/image/menuitem/spayment.png">Supplier Payment</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><a href="corder.html"><b><i class="fas fa-briefcase"></i> Sales</b></a></button>
+                    <div class="dropdown-content">
+                        <a style="padding: 15px" class="CUSTOMER" href="customer.html"><img style="margin-right: 20px" src="resourse/image/menuitem/customer.png">Customer</a>
+                        <a style="padding: 15px" class="CORDER" href="corder.html"><img style="margin-right: 20px" src="resourse/image/menuitem/sorder.png">Customer Order</a>
+                        <a style="padding: 15px" class="CUSTOMERRETURN" href="creturn.html"><img style="margin-right: 20px" src="resourse/image/menuitem/creturn.png">Customer Return</a>
+                        <a style="padding: 15px" class="INVOICE" href="Invoice.html"><img style="margin-right: 20px" src="resourse/image/menuitem/invoice.png">Invoice</a>
+                        <a style="padding: 15px" class="CPAYMENT" href="cpayment.html"><img style="margin-right: 20px" src="resourse/image/menuitem/cpayment.png">Customer Payment</a>
+                        <a style="padding: 15px" class="CUSTOMERPOINT" href="customerpoint.html"><img style="margin-right: 20px" src="resourse/image/menuitem/customerpoint.png">Customer Point</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><a href="distribute.html"><b><i class="fas fa-bus"></i> Distribution</b></a></button>
+                    <div class="dropdown-content">
+                        <a class="DISTRIBUTE" href="distribute.html"><img src="resourse/image/menuitem/distribute.png">Distribution</a>
+                        <a class="VEHICLE" href="vehicle.html"><img src="resourse/image/menuitem/vehicle.png">Vehicle</a>
+                        <a class="ROUTE" href="route.html"><img src="resourse/image/menuitem/route.png">Root</a>
+                    </div>
+                </div>
+
+                <button id="active" class="dropbtn"><b><i class="fas fa-store"></i> Inventory</b></button>
+
+
+                <div class="dropdown">
+                    <button class="dropbtn"><a href="request.html"><b><i class="fas fa-newspaper"></i> Request</b></a></button>
+                    <div class="dropdown-content">
+                        <a class="REQUEST" href="request.html"><img style="margin-right: 20px" src="resourse/image/menuitem/requestform.png">Request Details</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Card Content -->
+        <div class="container-fluid dashbordbody">
+            <button class="btn mt-4 card-menubar INVENTORY"><a href="inventory.html"><img src="resourse/image/menuitem/inventory.png" width="60px" height="40px" style="margin-left: 0px;"></br><b>Inventory</b></a></button>
+            <button class="btn mt-4 card-menubar BATCH"><a href="batch.html"><img src="resourse/image/menuitem/batch.png" width="60px" height="40px" style="margin-left: 0px;"></br><b>Batch</b></a></button>
+            <button class="btn card-menubar mt-4 ITEM"><a href="item.html"><img src="resourse/image/menuitem/item.png" width="60px" height="40px" style="margin-left: 0px;"></br><b>Item</b></a></button>
+            <button class="btn card-menubar mt-4 BRAND"><a href="brand.html"><img src="resourse/image/menuitem/brand.png" width="60px" height="40px" style="margin-left: 0px;"></br><b>Brand</b></a></button>
+            <button class="btn mt-4 CATEGORY" id="activeCardMenu"><img src="resourse/image/menuitem/category.png" width="60px" height="40px" style="margin-left: 0px;"></br><b>Category</b></button>
+            <div id="cardPanel" style="background-image: url(resourse/image/57.jpg);background-size: cover;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h3>Category Management</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div id="searchArea">
+                                            <form class="form-inline">
+                                                <div class="input-group">
+                                                    <input style="display: inline;" type="text" placeholder="Search Here...." class="form-control" id="txtSearchcatname" onblur="this.focus()" />
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                                    </div>
+                                                </div>
+
+                                                <button style="display: inline;" type="button" class="btn btn-outline-info ml-1" id="btnCatSearchClear"
+                                                        onclick="btnCatSearchClearMC()"><i class='fa fa-recycle'></i> Clear Search </button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2"></div>
+
+                                    <div class="col-md-4 text-right">
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#catformmodal"><img src="resourse/image/category.png" width="40px" height="30px" class="mr-1"> Add New Category</button>
+                                    </div>
+                                </div>
+
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="catformmodal" data-backdrop="static" tabindex="-1" role="dialog"
+                                     aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title"> <img src="resourse/image/category.png" alt="" width="40px" height="33px" class="mr-1"> Category Detail Form</h4>
+                                                <p id="topLableCat">
+                                                    <span style="color: red; font-weight: bold; font-size: 22px;">*</span> Required
+                                                </p>
+                                                <button class="btn btn-danger" type="button" class="close" aria-label="Close" onclick="btnCloseMCCat()">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body" id="formviewcat">
+                                                <div id="categoryform" onsubmit="return false">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group row">
+                                                                <label for="txtCategory" class="col-md-5"><b>Category Name :
+                                                                    <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" id="txtCategory"
+                                                                           required onkeyup="textFieldBinder(txtCategory,'^.*$','category','name','oldcategory')"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="button" id="btnClear1" class="btn bg-primary ml-1" style="width: 20%; color: white; font-size: medium;
+                                                    border-radius: 20px; border: 3px solid royalblue;" onclick="btnClearMC()">
+                                                        <i class='fa fa-eraser'></i> Clear
+                                                    </button>
+
+                                                    <button type="submit" id="btnAdd1" class="btn bg-success ml-1"style="width: 20%; color: white; font-size: medium;
+                                                    border-radius: 20px; border: 3px solid forestgreen;" onclick="btnAddMC()">
+                                                        <i class="fa fa-save"></i> Save
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col-md-12" id="tableview">
+                                        <div class="table-responsive" id="tableParent">
+
+                                            <script>
+                                                var metadata = [
+                                                    //{ name='column head name',search= search reqired , datatype= dispaly data type(text or photo), property=binding property}
+                                                    {name: 'Category Name',search: true, datatype: 'text', property: 'name'},
+                                                ];
+                                                table("tableParent","tblCategory",metadata,true);
+                                            </script>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="card-footer">
+                                <div style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <select class="form-control-sm form-control input" id="cmbPagesize"
+                                                style="width: 80px;">
+                                            <option selected value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                            <option value="1000">1000</option>
+                                        </select>
+                                        <script>
+                                            cmbPagesize.onchange = function chnagePageSize() {
+                                                activepage=1;
+                                                btnSearchMC();
+                                            };
+                                        </script>
+                                    </div>
+                                    <div style="display: inline-block; margin-left: 10px;">
+                                        <ul id="pagination" class="pagination pagination-sm"></ul>
+                                    </div>
+
+                                    <div class="container-fluid">
+                                        <div class="float-right">
+                                            <button class="form-control form-control-sm btn btn-sm btn-info" style="width: 105px; float:right" onclick="btnPrintTableMC()"><i class="fa fa-print"></i> Print Table</button>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h3>Subcategory Management</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div id="searchArea">
+                                            <form class="form-inline">
+                                                <div class="input-group">
+                                                    <input style="display: inline;" type="text" placeholder="Search Here...." class="form-control" id="txtSearchsubname" onblur="this.focus()" />
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                                    </div>
+                                                </div>
+
+                                                <button style="display: inline;" type="button" class="btn btn-outline-info ml-1" id="btnSubSearchClear"
+                                                        onclick="btnSubSearchClearMC()"><i class='fa fa-recycle'></i> Clear Search </button>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-1"></div>
+
+                                    <div class="col-md-5 text-right">
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#formmodal"><img src="resourse/image/category.png" width="40px" height="30px" class="mr-1"> Add New Subcategory</button>
+                                    </div>
+                                </div>
+
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="formmodal" data-backdrop="static" tabindex="-1" role="dialog"
+                                     aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title"> <img src="resourse/image/category.png" alt="" width="40px" height="33px" class="mr-1"> Subcategory Detail Form</h4>
+                                                <p id="topLableSub">
+                                                    <span style="color: red; font-weight: bold; font-size: 22px;">*</span> Required
+                                                </p>
+                                                <button class="btn btn-danger" type="button" class="close" aria-label="Close" onclick="btnCloseMC2()">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body" id="formviewsub">
+                                                <div id="brandform" onsubmit="return false">
+
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group row">
+                                                                <label for="txtSubcategory" class="col-md-5"><b>Subcategory Name :
+                                                                    <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                <div class="col-md-7">
+                                                                    <input type="text" class="form-control" id="txtSubcategory"
+                                                                           required onkeyup="textFieldBinder(txtSubcategory,'^.*$','subcategory','name','oldsubcategory')"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group row">
+                                                                <label for="cmbCategory1" class="col-md-5"><b>Category :
+                                                                    <span style="color: red; font-size: 22px;">*</span></b></label>
+                                                                <div class="col-md-7">
+                                                                    <select id="cmbCategory1" class="form-control" required
+                                                                            onchange="comboBoxBinder(cmbCategory1,'','subcategory','categoryId','oldsubcategory')"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <input type="checkbox"  class="largerCheckbox" id="chkClose" name="example2">
+                                                <label style="font-size: 18px; color: darkslategray;margin-right: 0px" for="chkClose">Keep this window open to enter details continously</label>
+
+
+
+
+
+                                                <div class="modal-footer">
+                                                    <button type="button" id="btnClear" class="btn bg-primary ml-1" style="width: 20%; color: white; font-size: medium;" onclick="btnClearMC2()">
+                                                        <i class='fa fa-eraser'></i> Clear
+                                                    </button>
+
+                                                    <button type="button" id="btnUpdate" class="btn bg-warning ml-1" style="width:24%; color: white; font-size: medium;" onclick="btnUpdateMC()">
+                                                        <i class='fa fa-edit'></i> Update
+                                                    </button>
+
+                                                    <button type="submit" id="btnAdd" class="btn bg-success ml-1"style="width: 20%; color: white; font-size: medium;" onclick="btnAddMC2()">
+                                                        <i class="fa fa-save"></i> Save
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col-md-12" id="tableview">
+                                        <div class="table-responsive" id="tableParent2" class="table-container ml-2">
+
+                                            <script>
+                                                var metadata = [
+                                                    //{ name='column head name',search= search reqired , datatype= dispaly data type(text or photo), property=binding property}
+                                                    {name: 'Sub Category Name',search: true, datatype: 'text', property: 'name'},
+                                                    {name: 'Category', search: true, datatype: 'text', property: 'categoryId.name'},
+                                                ];
+                                                table("tableParent2","tblSubcategory",metadata,true);
+                                            </script>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="card-footer">
+                                <div style="display: flex;">
+                                    <div style="display: inline-block;">
+                                        <select class="form-control-sm form-control input" id="cmbPagesize2"
+                                                style="width: 80px;">
+                                            <option selected value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                            <option value="1000">1000</option>
+                                        </select>
+                                        <script>
+                                            cmbPagesize2.onchange = function chnagePageSize() {
+                                                activepage=1;
+                                                btnSubSearchMC();
+                                            };
+                                        </script>
+                                    </div>
+                                    <div style="display: inline-block; margin-left: 10px;">
+                                        <ul id="pagination2" class="pagination pagination-sm"></ul>
+                                    </div>
+
+                                    <div class="container-fluid">
+                                        <div class="float-right">
+                                            <button class="form-control form-control-sm btn btn-sm btn-info" style="width: 105px; float:right" onclick="btnPrintTableMC2()"><i class="fa fa-print"></i> Print Table</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div id="err" style="margin-top: 200px"></div>-->
+
+</div>
+</div>
+
+<div class="overlay"></div>
+
+</body>
+
+</html>

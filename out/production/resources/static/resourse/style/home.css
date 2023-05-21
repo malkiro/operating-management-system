@@ -1,0 +1,14 @@
+.dashbordbody{
+	/*margin: -20px 0px 0px 0px;*/
+
+	background-color: aqua;
+	background:url(../image/911.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: auto;
+	padding: 0px 30px 20px 30px;
+
+	/*margin-top: -140px;*/
+
+}

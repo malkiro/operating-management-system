@@ -1,0 +1,259 @@
+/*------------------Nav Bar-----------------*/
+#navBar{height: 80px;}
+#navBar h1{text-shadow: 2px 2px 3px hotpink; display: inline; color: aliceblue;}
+.dropdown-menu{background-color: rgba(0, 0, 0, 0.9); padding: 0px;}
+.dropdown-item{color: white; box-shadow: 0 0 3px white;}
+.dropdown-item:hover{color: darkblue;}
+
+/*#homeButton{margin-left: 100px; display: inline}*/
+a img{width: 60px; margin-left: 40px;}
+
+
+/*-------------------Menu Heading--------------*/
+#active{
+    color: black; padding-top: 5px; height: 35px;  text-align: center; border: 1px rgb(161, 161, 161) solid; border: 2px #5a6268 solid;
+    box-shadow: 0 0 6px blue;
+    font-size: 17px;
+}
+
+
+.menu-box:hover{
+    background: lightcyan;
+    font-size: 17px;
+}
+
+.menu-box a{display: block;}
+
+
+
+
+
+/*-------------Card Panel And Card Menu Bar----------------*/
+#cardPanel{padding: 30px; border: 3px deepskyblue solid; border-radius: 0px 15px 15px 15px;}
+#activeCardMenu{width: 155px; border: 3px deepskyblue solid; border-bottom: 0px; background: white; border-radius: 10px 15px 0px 0px; }
+.card-menubar{
+    width: 155px; border: 3px deepskyblue solid; border-bottom: 0px; border-radius: 15px 15px 0px 0px; padding-left: 0px;
+    padding-right: 0px;
+}
+
+.card-menubar:hover{
+    background: white;
+    color: deepskyblue;
+}
+
+.card-menubar a{display: block;}
+
+.card{border: 3px blue solid; border-radius: 8px;}
+/*Card Header*/
+.card-header{
+    margin-top: -1px; margin-left: -1px; margin-right: -1px;
+}
+/*Card Body*/
+.card-body{background: #fff1f3;}
+#searchArea{border: 2px solid #d6d6c2; padding: 5px; border-radius: 5px; width: 420px; background: white;}
+#tableParent{background: linear-gradient(lightskyblue, lightcyan,lightskyblue, lightcyan,lightskyblue);}
+
+.table-container {
+    width: auto;
+    overflow-x: scroll !important;
+}
+
+
+
+
+
+
+
+/*-----------------Model---------------*/
+/*Model Header*/
+.modal-header{background: lightskyblue; height: 48px; padding: 3px 3px 3px 20px; color: #555;
+    background: lightskyblue; height: 48px; padding: 3px 3px 3px 20px; color: #555;}
+
+/*Model Body*/
+.modal-content{border:5px lightskyblue solid; border-radius: 8px;}
+.modal-body{background-image: radial-gradient(circle,white, white,lightcyan,lightskyblue);}
+.jumbotron{background: lightblue; border: 2px solid lightskyblue; border-radius:20px; padding: 15px;}
+.form-control{border-radius: 10px;}
+.input-group-text{border-radius: 10px; background: lightcyan;}
+#btnClear{border-radius: 20px; border: 3px solid royalblue;}
+#btnUpdate{border-radius: 20px; border: 3px solid orange;}
+#btnAdd{border-radius: 20px; border: 3px solid forestgreen;}
+#btnInnerClear{border-radius: 14px; border: 3px solid royalblue;}
+#btnInnerUpdate{border-radius: 14px; border: 3px solid orange; color: white;}
+#btnInnerAdd{border-radius: 14px; border: 3px solid forestgreen;}
+#btnAddorder{border-radius: 30px;}
+#txtSearchname{border-radius: 0px !important;}
+
+/*Model Footer*/
+.modal-footer{height: 55px; padding: 4px;}
+
+.swal-button--confirm {
+    background: #0a0;
+    border: 1px solid #202326;
+    border-radius: 20px;
+}
+
+.swal-button--cancel {
+    /*background: #007bff;*/
+    /*color: white;*/
+    border: 1px solid #202326;
+    border-radius: 20px;
+}
+
+
+.swal-modal {
+    background-color: lightcyan;
+    border: 3px solid #202326;
+    border-radius: 30px;
+    padding: 0px;
+
+}
+
+.swal-icon img{
+    width: 100px;
+    height: 100px;
+    padding: 0px;
+    margin-top: -10px;
+}
+
+.swal-overlay {
+    background-color: rgba(43, 165, 137, 0.45);
+}
+
+.sweet-alert
+{
+    background-color: #2f2f2f96;
+}
+
+.swal-title {
+    margin: 0px;
+    padding: 0px;
+    font-size: 25px;
+    color: black;
+    /*box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.21);*/
+    /*margin-bottom: 28px;*/
+}
+
+.swal-text {
+    margin-top: -15px;
+    color: #000121;
+    /*font-size: 15px;*/
+    /*box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.21);*/
+    margin-bottom: 0px;
+}
+
+/*Cursor Change*/
+input[disabled] {
+    cursor: not-allowed;
+}
+
+select {
+    cursor: pointer;
+}
+select[disabled] {
+    cursor: not-allowed;
+}
+
+input.largerCheckbox {
+    width: 25px;
+    height: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 820px) and (min-width: 421px) {
+    /*----------Side Bar--------*/
+    #sidebar h3{font-size: 20px !important;}
+    #sidebar ul li a {
+        padding: 5px;
+        font-size: 12px;
+        display: block;
+    }
+
+    ul ul a {
+        font-size: 10px !important;
+        padding-left: 20px !important;
+        background-color: rgba(0, 0, 0, 0.8);
+        box-shadow: 0 0 2px white;
+    }
+
+    /*------------Nav Bar-----------*/
+    #navBar h1{font-size: 15px;}
+    #homeButton{margin-left: 30px; display: inline;}
+    .dropdown button{width: 120px !important;}
+    .dropdown-menu{width: 120px !important;}
+    .dropdown-item{font-size: 11px;}
+    a img{width: 40px; margin-left: 10px;}
+
+
+
+
+
+    /*------------Menu Heading-----------*/
+    #active{
+        font-size: 12px; padding-top: 1px; height: 25px; box-shadow: 0 0 3px blue;
+    }
+
+    /*.menu-box{*/
+    /*font-size: 12px; padding-top: 1px; height: 25px; box-shadow: 0 0 3px blue;*/
+    /*}*/
+
+    /*-----------Card Panel And Card Menu Bar-------*/
+    #cardPanel{padding: 10px;}
+
+    .card-menubar{
+        width: 200px;
+    }
+
+    /*Card Header*/
+    .card-header{height: 45px; margin-top: 0px; margin-left: 0px; margin-right: 0px;}
+    h3{font-size: 20px;}
+
+    /*Card Body*/
+    #searchArea{border: 2px solid #d6d6c2; padding: 5px; border-radius: 5px; width: 328px;}
+    #tableParent{font-size: 8px !important;}
+    #tableParent button{ width: 20px; height: 20px; padding: 0px; font-size: 8px !important;}
+
+    /*Card Footer*/
+    .card-footer{font-size: 11px; height: 55px;}
+
+
+
+
+
+
+    /*-----------------Model---------------*/
+    /*Model Header*/
+    .modal-header{background: lightskyblue; height: 38px; padding: 3px 3px 3px 20px; color: #555;}
+    img{display: none;}
+    h4{font-size: 18px;}
+
+    /*Model Body*/
+    .modal-dialog{max-width:800px;}
+    label{font-size: 11px;}
+    input{font-size: 11px !important;}
+    select{font-size: 11px !important;}
+    textarea{font-size: 11px !important;}
+    span{font-size: 11px !important;}
+    legend{font-size: 12px !important;}
+    button{font-size: 11px !important;}
+    .modal-content{border:2px lightskyblue solid; border-radius: 8px;}
+    #innertable{font-size: 11px !important;}
+
+
+    /*Model Footer*/
+    .modal-footer{height: 25px; padding: 1px}
+
+
+/*#activeCardMenu{display: none;}*/
+/*.card-menubar{display: none;}*/
+
+}

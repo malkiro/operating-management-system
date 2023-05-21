@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kaushalya Distributors</title>
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resourse/bootstrap/css/font-awesome.min.css">
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="resourse/style/home.css">
+    <link rel="stylesheet" href="resourse/style/common.css">
+    <link rel="stylesheet" href="resourse/style/style3.css">
+    <link rel="stylesheet" href="resourse/style/common2.css">
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <script src="resourse/script/mainWindow.js"></script>
+
+    <script src="resourse/script/sweetalert.min.js"></script>
+
+    <script defer src="resourse/fontawesome/js/solid.js"></script>
+    <script defer src="resourse/fontawesome/js/fontawesome.js"></script>
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap4-toggle.min.css">
+    <script src="resourse/bootstrap/js/bootstrap4-toggle.min.js"></script>
+
+    <link href="resourse/select2/css/select2.min.css" rel="stylesheet" />
+    <script src="resourse/select2/js/select2.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="../resourse/chart/Chart.js"></script>
+    <script src="../resourse/chart/chartjs-plugin-colorschemes.js"></script>
+    <link rel="stylesheet" href="../resourse/chart/Chart.css">
+
+    <script src="grnreport.js"></script>
+
+    <style>
+        /*-------------------Menu Heading--------------*/
+        #active{
+            border: 3px solid black;
+        }
+
+        .dropbtn {
+            font-size: 16px;
+            cursor: pointer;
+            width: 281px;
+            color: black;
+            padding: 0px;
+            height: 35px;
+            text-align: center;
+            border: 1px rgb(161, 161, 161)
+            solid; border: 2px #5a6268 solid;
+            box-shadow: 0 0 6px blue;
+            background-image: url(resourse/image/backgroungbox.png)
+        }
+
+        .dropbtn:hover{
+            background: lightcyan;
+            font-size: 17px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: lightcyan;
+            min-width: 281px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border: 1px solid cyan;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 30px;
+            text-decoration: none;
+            display: block;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .dropdown-content img{
+            border: 1px solid black;
+            margin: 0px 30px 0px 0px;
+            border-radius: 50%;
+            display: inline;
+        }
+
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            border-radius: 30px;
+            border: 1px solid cyan;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        /*-------------Card Panel And Card Menu Bar----------------*/
+        .card-menubar{
+            background-image: url(resourse/image/57.jpg);
+        }
+
+
+        /*Model Footer*/
+        #topLable {margin-left: 100px;color: #1b1e21; font-size: 16px;}
+
+
+
+
+
+
+
+        @media only screen and (max-width: 820px) and (min-width: 421px) {
+            /*Card Body*/
+            #btnAddorder{width: 102px; margin-left: -40px;}
+
+
+            /*Model Footer*/
+            #bottomLable{margin-right: 270px; font-size: 11px;}
+        }
+
+        .tooltip-inner {
+            background-color: #343a40;
+        }
+
+        fieldset {
+            border: 2px solid #ddd;
+            margin-top: 12px;
+            padding: 10px;
+            border-radius: 15px;
+            height: 250px;
+        }
+
+        legend {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            width: 70px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+</head>
+
+<body>
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar" style="background-image: url(resourse/image/6.jpg);background-size: cover;">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header mt-5 mr-1 ml-1">
+            <div class="row">
+                <div class="col-md-3" style="padding: 0px">
+                    <img src="resourse/image/logo.png" alt=" logo">
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12"><h3 class="ml-2">Kaushalya</h3></div>
+                        <div class="col-md-12"><h3 class="ml-2">Distributors</h3></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <ul class="list-unstyled components">
+
+            <li>
+                <a href="http://localhost:8080/mainwindow">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-users-cog"></i>
+                    Administration
+                </a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li id="EMPLOYEE">
+                        <a href="http://localhost:8080/employee">Employee</a>
+                    </li>
+                    <li id="USER">
+                        <a href="http://localhost:8080/user">User</a>
+                    </li>
+                    <li id="PRIVILAGE">
+                        <a href="http://localhost:8080/privilage">Privilage</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#purchaseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Purchase
+                </a>
+                <ul class="collapse list-unstyled" id="purchaseSubmenu">
+                    <li id="SUPPLIER">
+                        <a href="http://localhost:8080/supplier"> Supplier </a>
+                    </li>
+                    <li id="PORDER">
+                        <a href="http://localhost:8080/porder"> Purchase Order </a>
+                    </li>
+                    <li id="GRN">
+                        <a href="http://localhost:8080/grn"> GRN </a>
+                    </li>
+                    <li  id="SPAYMENT">
+                        <a href="http://localhost:8080/spayment"> Supplier Payment </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Dropdown -->
+            <li>
+                <a href="#salesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-briefcase"></i>
+                    Sales
+                </a>
+                <ul class="collapse list-unstyled" id="salesSubmenu">
+                    <li id="CUSTOMER">
+                        <a href="http://localhost:8080/customer"> Customer </a>
+                    </li>
+                    <li  id="CORDER">
+                        <a href="http://localhost:8080/corder"> Customer Order </a>
+                    </li>
+                    <li  id="INVOICE">
+                        <a href="http://localhost:8080/invoice"> Customer Invoice </a>
+                    </li>
+                    <li id="CPAYMENT">
+                        <a href="http://localhost:8080/cpayment"> Customer Payment </a>
+                    </li>
+                    <li id="CUSTOMERRETURN">
+                        <a href="http://localhost:8080/creturn"> Customer Return </a>
+                    </li>
+                    <li id="CUSTOMERPOINT">
+                        <a href="http://localhost:8080/customerpoint"> Customer Point </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#distributeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-bus"></i>
+                    Distribution
+                </a>
+                <ul class="collapse list-unstyled" id="distributeSubmenu">
+                    <li  id="DISTRIBUTE">
+                        <a href="http://localhost:8080/distribute">Distribution</a>
+                    </li>
+                    <li  id="VEHICLE">
+                        <a href="http://localhost:8080/vehicle">Vehicle</a>
+                    </li>
+                    <li  id="DISTRIBUTIONROUTE">
+                        <a href="http://localhost:8080/route">Route</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#inventorySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-store"></i>
+                    Inventory
+                </a>
+                <ul class="collapse list-unstyled" id="inventorySubmenu">
+                    <li  id="INVENTORY">
+                        <a href="http://localhost:8080/inventory">Inventory</a>
+                    </li>
+                    <li  id="BATCH">
+                        <a href="http://localhost:8080/batch">Batch</a>
+                    </li>
+                    <li  id="ITEM">
+                        <a href="http://localhost:8080/item">Item</a>
+                    </li>
+                    <li id="BRAND">
+                        <a href="http://localhost:8080/brand">Brand</a>
+                    </li>
+                    <li  id="CATEGORY">
+                        <a href="http://localhost:8080/category">Category</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#requestSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-newspaper"></i>
+                    Request
+                </a>
+                <ul class="collapse list-unstyled" id="requestSubmenu">
+                    <li  id="REQUEST">
+                        <a href="http://localhost:8080/inventory">Request Details</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li id="REPORTS">
+                <a href="#reportSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fas fa-book"></i>
+                    Report
+                </a>
+                <ul class="collapse list-unstyled" id="reportSubmenu">
+                    <li>
+                        <a href="http://localhost:8080/grnreport"> GRN Report </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/salesreport"> Sales Report </a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/employeereport"> Employee Details Report </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+        <!-- Navbar  -->
+        <nav id="navBar" class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+            <div class="container-fluid">
+                <div class="float-left">
+                    <button type="button" id="sidebarCollapse" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-secondary btn-lg rounded-circle ml-5">
+                        <a href="http://localhost:8080/mainwindow"> <i class="fa fa-home"></i></a>
+                    </button>
+
+                    <!-- Brand/logo -->
+                    <a class="navbar-brand" href="#">
+                        <img src="resourse/image/logo.png" alt=" logo">
+                    </a>
+
+                    <h1>KAUSHALYA</h1>
+                    <h1 class="ml-3">DISTRIBUTORS</h1>
+
+
+                    <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+                    <script>
+                        showTime();
+                    </script>
+
+                </div>
+
+
+
+                <form class="form-inline my-2 my-lg-0 mr-2 float-right">
+                    <h4 style="color: aliceblue">Login as :</h4>
+                    <h5 style="color: aliceblue" class="d-inline ml-2" id="lblLoggedAsUser"></h5>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" style="width: 200px" href="#"
+                                   id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <img id="profileImage" class="profileImage">
+                                    <p class="loggedUserNameField d-inline ml-2" id="lblLogUser">123456</p>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="width: 200px">
+                                    <!--                                    <a class="dropdown-item" href="#"><i class="fas fa-user-circle"></i> View Profile</a>-->
+                                    <a class="dropdown-item" href="#" onclick="btnSignoutMC()"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+        </nav>
+
+        <!-- Sub Menu Content -->
+        <div class="container-fluid" style="margin-top: -40px">
+            <div class="row">
+                <div class="dropdown">
+                    <button class="dropbtn"><a href="http://localhost:8080/employee"><b><i class="fas fa-users-cog"></i> Administration</b></a></button>
+                    <div class="dropdown-content">
+                        <a class="EMPLOYEE" href="http://localhost:8080/employee"><img src="resourse/image/menuitem/employee.png">Employee</a>
+                        <a class="USER" href="http://localhost:8080/user"><img src="resourse/image/menuitem/user.png">User</a>
+                        <a class="PRIVILAGE" href="http://localhost:8080/privilage"><img src="resourse/image/menuitem/privilege.png">Privilege</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-briefcase"></i> Purchases</b></button>
+                    <div class="dropdown-content">
+                        <a style="padding: 20px" class="SUPPLIER" href="http://localhost:8080/supplier"><img style="margin-right: 20px" src="resourse/image/menuitem/supplier.png">Supplier</a>
+                        <a style="padding: 20px" class="PORDER" href="http://localhost:8080/porder"><img style="margin-right: 20px" src="resourse/image/menuitem/porder.png">Purchase Order</a>
+                        <a style="padding: 20px" class="GRN" href="http://localhost:8080/grn"><img style="margin-right: 20px" src="resourse/image/menuitem/grn.png">GRN</a>
+                        <a style="padding: 20px" class="SPAYMENT" href="http://localhost:8080/spayment"><img style="margin-right: 20px" src="resourse/image/menuitem/spayment.png">Supplier Payment</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-briefcase"></i> Sales</b></button>
+                    <div class="dropdown-content">
+                        <a style="padding: 15px" class="CUSTOMER" href="http://localhost:8080/customer"><img style="margin-right: 20px" src="resourse/image/menuitem/customer.png">Customer</a>
+                        <a style="padding: 15px" class="CORDER" href="http://localhost:8080/corder"><img style="margin-right: 20px" src="resourse/image/menuitem/sorder.png">Customer Order</a>
+                        <a style="padding: 15px" class="INVOICE" href="http://localhost:8080/invoice"><img style="margin-right: 20px" src="resourse/image/menuitem/invoice.png">Customer Invoice</a>
+                        <a style="padding: 15px" class="CPAYMENT" href="http://localhost:8080/cpayment"><img style="margin-right: 20px" src="resourse/image/menuitem/cpayment.png">Customer Payment</a>
+                        <a style="padding: 15px" class="CUSTOMERRETURN" href="http://localhost:8080/creturn"><img style="margin-right: 20px" src="resourse/image/menuitem/creturn.png">Customer Return</a>
+                        <a style="padding: 15px" class="CUSTOMERPOINT" href="http://localhost:8080/customerpoint"><img style="margin-right: 20px" src="resourse/image/menuitem/customerpoint.png">Customer Point</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-bus"></i> Distribution</b></button>
+                    <div class="dropdown-content">
+                        <a class="DISTRIBUTE" href="http://localhost:8080/distribute"><img src="resourse/image/menuitem/distribute.png">Distribution</a>
+                        <a class="VEHICLE" href="http://localhost:8080/vehicle"><img src="resourse/image/menuitem/vehicle.png">Vehicle</a>
+                        <a class="ROUTE" href="http://localhost:8080/route"><img src="resourse/image/menuitem/route.png">Root</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-store"></i> Inventory</b></button>
+                    <div class="dropdown-content">
+                        <a class="INVENTORY" href="http://localhost:8080/inventory"><img src="resourse/image/menuitem/inventory.png">Inventory</a>
+                        <a class="BATCH" href="http://localhost:8080/batch"><img src="resourse/image/menuitem/batch.png">Batch</a>
+                        <a class="ITEM" href="http://localhost:8080/item"><img src="resourse/image/menuitem/item.png">Item</a>
+                        <a class="BRAND" href="http://localhost:8080/brand"><img src="resourse/image/menuitem/brand.png">Brand</a>
+                        <a class="CATEGORY" href="http://localhost:8080/category"><img src="resourse/image/menuitem/category.png">Category</a>
+                    </div>
+                </div>
+
+
+                <div class="dropdown">
+                    <button class="dropbtn"><b><i class="fas fa-newspaper"></i> Request</b></button>
+                    <div class="dropdown-content">
+                        <a class="REQUEST" href="http://localhost:8080/request"><img style="margin-right: 20px" src="resourse/image/menuitem/requestform.png">Request Details</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Card Content -->
+        <div class="container-fluid dashbordbody">
+            <!--<button class="btn mt-4 REQUEST" id="activeCardMenu"><b>Grn Report</b></button>-->
+            </br>
+            <div id="cardPanel" style="background-image: url(resourse/image/57.jpg);background-size: cover; border-top-right-radius: 20px; border-top-left-radius: 20px;">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3>Report Details Management</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="container-fluid mt-1">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="card" style="border: 3px solid lightskyblue; width: 254px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; height: 658px;">
+                                        <div class="card-header" style="background: lightskyblue; height:60px;"><h4 style="display: inline">Report Name</h4><h4 style="display: inline; padding-left: 30px;"> >> </h4></div>
+                                        <div class="card-body" style="padding: 0px; background: white;">
+                                            <div class="list-group">
+                                            <a  style="width: 250px" href="#" class="list-group-item list-group-item-action list-group-item-secondary">GRN Report</a>
+                                            <a  style="width: 250px" href="http://localhost:8080/salesreport" class="list-group-item list-group-item-action">Total Sales Report</a>
+                                                <a  style="width: 250px" href="http://localhost:8080/employeereport" class="list-group-item list-group-item-action">Employee Report</a>
+                                            </div>
+                                        </div>
+                                </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="card" style="border: 3px solid lightskyblue; border-top-left-radius: 0px; border-bottom-left-radius: 0px;">
+                                        <div class="card-header" style="background: lightskyblue;"><h4>Good Recieved Note Details Report</h4></div>
+                                        <div class="card-body" style="background-image: url(resourse/image/report.jpg);background-repeat: no-repeat; background-size: cover;">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="txtSdate"> <b>Start date: <span style="color:red; font-size:24px">*</span></b></label>
+                                                        <input type="date" id="txtSdate" class="form-control"  onchange="txtSdateMC()"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group ">
+                                                        <label for="txtEdate"> <b>End date: <span style="color:red; font-size:24px">*</span></b></label>
+                                                        <input type="date" id="txtEdate" class="form-control"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2" style="margin-top: 42px;">
+                                                    <input style="width: 170px" type="button" class="btn btn-success" value="Genarate Report" onclick="getReport()">
+                                                </div>
+                                                <div class="col-md-2" style="margin-top: 42px;">
+                                                    <button style="width: 170px" type="button" class="btn btn-info" onclick="btnPrintTableMC()"><i class="fa fa-print"></i> Print Report</button>
+                                                </div>
+                                                <div class="col-md-2"></div>
+                                            </div>
+
+                                            <div class="row mt-5">
+
+                                                <div class="col-md-7" id="tableParent" style="background: none;">
+                                                    <script>
+                                                        function getamount(ob) {
+                                                            return parseFloat(ob.amount).toFixed(2);
+                                                        }
+
+                                                        var metadata = [
+                                                            {name: 'Grn Date', search: false, datatype: 'text', property: 'date'},
+                                                            {name: 'Grn Count', search: false, datatype: 'text', property: 'count'},
+                                                            {name: 'Grn Net Total', search: false, datatype: 'text', property: getamount}
+                                                        ];
+                                                        tableForInnerForm("tableParent", "tblGrn", metadata, false);
+                                                    </script>
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <canvas id="myChart" width="400px" height="400px"></canvas>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <!--<div class="row" id="err"></div>-->
+                        </div>
+
+
+                        <script>
+                            function getReport() {
+                                var saleses = httpRequest("/grnreport?sdate=" + txtSdate.value + "&edate=" + txtEdate.value, "GET");
+                                var labels = new Array();
+                                var data = new Array();
+                                var salesList = new Array();
+
+                                for (var index in saleses) {
+                                    labels.push(saleses[index][1]);
+                                    data.push(saleses[index][0]);
+                                    var sales = new Object();
+                                    sales.count = saleses[index][0];
+                                    sales.date = saleses[index][1];
+                                    sales.amount = saleses[index][2];
+                                    salesList.push(sales);
+                                }
+                                fillTable('tblGrn', salesList, null, null, null);
+
+
+                                var ctx = document.getElementById('myChart');
+                                var myChart = new Chart(ctx, {
+                                    type: 'pie',
+                                    data: {
+                                        labels: labels,
+                                        datasets: [{
+                                            label: '# of Votes',
+                                            data: data,
+                                            fill: false,
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        },
+                                        plugins: {
+
+                                            colorschemes: {
+
+                                                scheme: 'brewer.SetThree8'
+
+                                            }
+
+                                        }
+
+                                    }
+                                });
+
+                            }
+
+                            // function getDate() {
+                            //     var today = new Date();
+                            //     var month = today.getMonth()+1;
+                            //     if(month<10) month = "0"+month;
+                            //     var date = today.getDate();
+                            //     if(date<10) date = "0"+date;
+                            //
+                            //     txtSdate.max = today.getFullYear()+"-"+month+"-"+date;
+                            //     txtEdate.max = today.getFullYear()+"-"+month+"-"+date;
+                            // }
+
+                            function btnPrintTableMC() {
+
+                                var newwindow=window.open();
+                                formattab = tblGrn.outerHTML;
+
+                                newwindow.document.write("" +
+                                    "<html>" +
+                                    "<head><style type='text/css'>.google-visualization-table-th {text-align: left;} .modifybutton{display: none} .isort{display: none}</style>" +
+                                    "<link rel='stylesheet' href='../plugin/bootstrap/css/bootstrap.min.css'/></head>" +
+                                    "<body><div style='margin-top: 150px; '> <h1>Good Recieved Note Details Report </h1></div>" +
+                                    "<div>"+ formattab+"</div>"+
+                                    "</body>" +
+                                    "</html>");
+                                setTimeout(function () {newwindow.print(); newwindow.close();},100) ;
+                            }
+                        </script>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <div id="err" style="margin-top: 200px"></div> -->
+
+    </div>
+</div>
+
+<div class="overlay"></div>
+
+</body>
+
+</html>

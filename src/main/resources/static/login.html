@@ -1,0 +1,233 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaushalya Distributors</title>
+
+
+    <link rel="stylesheet" href="resourse/bootstrap/css/bootstrap.min.css">
+    <script src="resourse/jquery/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="resourse/fontawesome/css/all.css">
+    <script src="resourse/jquery/popper.min.js"></script>
+    <script src="resourse/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="resourse/script/common.bitproject.js"></script>
+    <link rel="stylesheet" href="resourse/style/login.css">
+
+    <style>
+
+      img {
+          border-radius: 300px;
+      }
+
+    </style>
+
+
+<script>
+
+  /*  $.get( "/login?error=true", function( data ) {
+        $( "#lblErr" ).css("display","block");
+
+    });*/
+
+
+function btnLogin() {
+
+    if(username.value !="" && password.value != ""){
+        loginuser.loginusername = username.value;
+        session.setObject("loginuser",loginuser);
+    }
+
+}
+
+  window.addEventListener("load", initialize);
+
+  //Initializing Functions
+
+  function initialize() {
+      loginuser = new Object();
+      session.setObject("loginuser", new Object());
+
+      var url = window.location.href;
+      if (url == "http://localhost:8080/login?error=detailserr") {
+          $("#lblErrDetails").css("display", "block");
+          $("#lblErrUInactive").css("display", "none");
+      } else if (url == "http://localhost:8080/login?error=notactive") {
+          $("#lblErrUInactive").css("display", "block");
+          $("#lblErrDetails").css("display", "none");
+      }
+  }
+
+</script>
+
+    <style>
+        body {
+            background-image: url("resourse/image/background.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .subborder {
+            box-shadow: 0 0 3px white;
+            border-radius: 50px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .brandslogo {
+            height: 40px;
+            width: 90px;
+            border-radius: 0px;
+            margin-left: 5px;
+        }
+
+        .spans {
+            border: 2px solid #1E90FF;
+            border-bottom-left-radius: 20px;
+            border-top-left-radius: 20px;
+            box-shadow: 0 0 5px #FD0196;
+        }
+
+        .inputfield {
+            border-right: 2px solid #1E90FF;
+            border-top: 2px solid #1E90FF;
+            border-bottom: 2px solid #1E90FF;
+            color: #1E90FF;
+            border-bottom-right-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 0 5px #FD0196;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="row" style="margin-top: 120px; margin-left: 420px; margin-right: 380px;
+     border: 4px solid; border-radius: 35px;box-shadow: 0 0 6px blue;">
+
+    <div class="col-md-6" style="background-image: url(resourse/image/logobackground.png);
+        background-repeat: no-repeat; background-size: cover;
+        text-align :center; height: 530px;
+         border-top-left-radius:30px; border-bottom-left-radius:30px;">
+        <br />
+
+        <h1 style=" text-shadow: 0 0 5px blue;" class="subborder">KAUSHALYA DISTRIBUTORS</h1>
+        <br />
+
+        <div style="border-radius: 50%; margin-left: 65px; margin-right: 65px; padding: 30px 0px 30px 0px;" class="subborder">
+            <img src="resourse/image/logo.png" alt="" width=220px" height="220px">
+        </div>
+
+        <br>
+
+        <div class="row" style="margin-right: 5px; margin-left: 5px;margin-top: 10px; display: block;">
+            <img src="resourse/image/ritzbery.jpg" class="brandslogo" />
+            <img src="resourse/image/revellonewlogo.jpg" class="brandslogo" />
+            <img src="resourse/image/revellologo.jpg" class="brandslogo" />
+            <img src="resourse/image/tiara.jpg" class="brandslogo" />
+        </div>
+
+    </div>
+
+
+    <div class="col-md-6" style="height: 530px;
+        background-color: rgba(0,0,0,0.6) !important;
+        border-top-right-radius:30px;
+        border-bottom-right-radius:30px;">
+
+        <div style="margin-left: 150px">
+            <img class="mx-auto d-block" src="resourse/image/user.gif" alt="" width="150px" height="150px" style="position: absolute;
+                top: -75px;
+                border-radius: 50%;
+                border: 4px solid #1E90FF;
+                box-shadow:0 0 8px #FD0196;">
+        </div>
+
+
+        <br/><br/><br/><br/>
+        <h3 style="text-align: center; color: whitesmoke">Login Here ...</h3><br />
+
+        <div style="height: auto;
+            border: 2px solid #1E90FF ;
+            border-radius:30px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: -15px;
+            background-image: url(resourse/image/loginbackgrond.jpg);
+            background-size: cover;">
+
+            <br />
+
+
+            <form action="/login" method="POST">
+                <div style="margin-left: 30px; margin-right: 30px;">
+
+                    <div class="form-group">
+                        <label><b>Username :</b></label>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                    <span class="input-group-text spans">
+                                        <i class="fa fa-user fa-1x"style="color:#1E90FF;"></i></span>
+                            </div>
+                            <input type="text" class="form-control inputfield" name="username" id="username" required
+                                   placeholder="Enter Your Username" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label><b>Password :</b></label>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                    <span class="input-group-text spans"><i class="fa fa-lock fa-1x"
+                                                                                style="color:#1E90FF;"></i></span>
+                            </div>
+                            <input type="password" class="form-control inputfield" name="password" id="password" required
+                                   placeholder="Enter Your Password" />
+                        </div>
+                    </div>
+
+                    <!--<div align="center" id="lblErrDetails" style="display: none">-->
+                        <!--<p style="font-size:20px; color: #FF1C19;">User Name or Password invalid, please verify</p>-->
+                    <!--</div>-->
+
+                    <!--<div align="center" id="lblErrUInactive" style="display: none">-->
+                        <!--<p style="font-size:20px; color: #FF1C19;">User Account is disabled, please contact admin</p>-->
+                    <!--</div>-->
+
+                    <div align="center" id="lblErrDetails" style="display: none">
+                        <p style="font-size:16px; color: #FF1C19; margin-bottom: 5px; padding-left: 18px; padding-right: 18px; font-weight: bold;">User Name or Password invalid, Please verify</p>
+                    </div>
+
+                    <div align="center" id="lblErrUInactive" style="display: none">
+                        <p style="font-size:16px; color: #FF1C19; margin-bottom: 5px; padding-left: 18px; padding-right: 18px; font-weight: bold;">User Account is disabled, Please contact Admin</p>
+                    </div>
+
+                    <br />
+
+
+                    <div class="form-group">
+                        <button class="btn btn-default" type="submit" name="" id="btnlogin" onclick="btnLogin()" style="width: 100%; background: #1E90FF; color: white;
+                                border-radius: 20px; box-shadow:0 0 5px #FD0196;">Login</button>
+                    </div>
+                </div>
+
+
+                <div class="form-group" style="text-align: center;">
+                    <a class="forgot text-muted" href="#" style="color: #1E90FF;">Forgot your password?</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
